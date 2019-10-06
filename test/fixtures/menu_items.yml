@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  link: MyString
+  published: false
+  position: 1
+  target: MyString
+  permission: MyString
+  permission_check: MyString
+
+two:
+  name: MyString
+  link: MyString
+  published: false
+  position: 1
+  target: MyString
+  permission: MyString
+  permission_check: MyString

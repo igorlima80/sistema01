@@ -1,0 +1,105 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap3/dist/css/bootstrap.min";
+@import "font-awesome";
+
+@import "admin-lte/dist/css/AdminLTE";
+@import "admin-lte/dist/css/skins/skin-blue-light";
+
+@import "datatables.net-bs/css/dataTables.bootstrap";
+@import "datatables.net-responsive-bs/css/responsive.bootstrap";
+
+@import 'bootstrap-fileinput/css/fileinput';
+@import 'select2/dist/css/select2';
+@import 'select2-bootstrap-theme/dist/select2-bootstrap';
+
+@import '@fullcalendar/core/main';
+
+.top-25 {
+  margin-top: 25px;
+}
+
+.user-block i {
+  float: left;
+}
+
+input[type=date] {
+  width: 100% !important;
+}
+
+.select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
+  margin-top: 1px !important;
+}
+
+@media only screen and (min-width: 992px) {
+  .row-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    flex-wrap: wrap;
+  }
+
+  .row-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .box-flex {
+    height: 100%;
+  }
+}
+
+.no-padding2 {
+  padding: 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.brand-i {
+  float: left;
+  line-height: .8;
+  max-height: 34px;
+  width: auto;
+  margin-left: 1.2rem;
+  margin-right: .5rem;
+  margin-top: 6px;
+}
+
+.number {
+  padding: 1px 0px;
+  text-align: center;
+  border-radius: 0px 0px 5px 0px !important;
+  font-weight: bold;
+  display: block;
+  width: 30px;
+}
+
+.invalid-feedback {
+  color: red;
+}
+
+.nav-without-background {
+  .nav-tabs-custom {
+    box-shadow: unset;
+
+    .tab-content {
+      background: #ecf0f5;
+      padding: 10px 0px 0px 0px;
+    }
+
+    .nav-tabs {
+      li {
+        border-top: 0px;
+        border-bottom: 3px solid transparent;
+      }
+      li.active {
+        border-top: 0px;
+        border-bottom-color: #3c8dbc;
+      }
+    }
+  }
+}
+
+.label-calendar {
+  font-size: 90%;
+}

@@ -1,0 +1,14 @@
+<div class="row">
+  <%= f.input :eventable_type, label: 'Tipo',
+    as: :select, collection: [
+      [ 'Indisponibilidade', 'Unavailability' ],
+      [ 'Período Especial', 'SpecialPeriod' ]
+    ],
+    input_html: { class: 'sselect2' }, wrapper_html: { class: 'col-md-4' } %>
+  <%= f.input :start_date, html5: true, wrapper_html: { class: 'col-md-4' } %>
+  <%= f.input :final_date, html5: true, wrapper_html: { class: 'col-md-4' } %>
+  <%= f.input :name, wrapper_html: { class: 'col-md-6', style: "display: none" } %>
+  <%= f.input :value, input_html: { class: 'currency' }, wrapper_html: { class: 'col-md-6', style: "display: none" } %>
+
+  <%= f.input :accommodation_id, as: :hidden, wrapper_html: { class: 'col-md-4' } %>
+</div>

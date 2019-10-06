@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-9">
+    <table class="table table-bordered table-striped">
+      <tbody>           
+        <tr>
+          <th width='15%'><%= User.human_attribute_name(:name) %></th>
+          <td><%= object.user.name %></td>
+        </tr>
+        <tr>
+          <th width='15%'><%= User.human_attribute_name(:email) %></th>
+          <td><%= object.user.email %></td>
+        </tr>
+        <tr>
+          <th width='15%'><%= User.human_attribute_name(:address) %></th>
+          <td><%= object.address.full_address %></td>
+        </tr>
+         
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-3 text-center">
+    <% if object.user.image.attached? %>
+      <%= image_tag object.user.image, class: 'img-responsive center-block', style: 'height: 120px' %>
+    <% else %>
+      Sem Imagem    
+    <% end %>
+  </div>
+</div>

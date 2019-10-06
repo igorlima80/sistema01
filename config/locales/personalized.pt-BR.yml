@@ -1,0 +1,231 @@
+# encoding: UTF-8
+pt-BR:
+  activerecord:
+    models: &MODELS
+      accommodation: Acomodação
+      accreditation_status: Status do Credenciamento
+      bank: Banco
+      bank_account: Conta Bancária
+      address: Endereço
+      cancellation: Cancelamento
+      city: Cidade
+      convenience: Comodidade
+      event: Evento
+      fee: Taxa
+      franchisee: Representante
+      guest: Hóspede
+      menu_item: Item de Menu
+      payment_status: Status do Pagamento
+      payment_type: Tipo de Pagamento
+      property: Proprietário
+      rating: Avaliação
+      reserve: Reserva
+      reserve_status: Status da Reserva
+      role: Permissão
+      service: Serviço
+      special_period: Período Especial
+      state: Estado
+      type_accommodation: Tipo de Acomodação
+      type_fee: Tipo de Taxa
+      type_trip: Tipo de Viagem
+      unavailability: Indisponibilidade
+      user: Usuário
+      setting: Configurações
+    attributes:
+      name_and_description: &BASIC
+        name: Nome
+        description: Descrição
+        created_at: Criação
+        updated_at: Atualização
+      accommodation:
+        <<: *BASIC
+        <<: *MODELS
+        value_per_night: Valor da Diária
+        maximum_adult: Máximo de Adultos
+        maximum_child: Máximo de Crianças
+        available: Disponível
+        rating: Nota de Avaliação
+        images: Imagens
+        convenience: Comodidade
+      accreditation_status:
+        <<: *BASIC
+        <<: *MODELS
+      address:
+        <<: *BASIC
+        <<: *MODELS
+        street: Logradouro
+        number: Número
+        complement: Complemento
+        district: Bairro
+        zipcode: CEP
+      bank:
+        <<: *BASIC
+        <<: *MODELS
+      bank_account:
+        <<: *BASIC
+        <<: *MODELS
+        agency_number: Agência
+        agency_check_number: Dígito
+        account_number: Conta
+        account_check_number: Dígito
+      cancellation:
+        <<: *BASIC
+        <<: *MODELS
+      city:
+        <<: *BASIC
+        <<: *MODELS
+        ibge: IBGE
+      convenience:
+        <<: *BASIC
+        <<: *MODELS
+      event:
+        <<: *BASIC
+        <<: *MODELS
+        start_date: Início
+        final_date: Fim
+        value: Valor
+      fee:
+        <<: *BASIC
+        <<: *MODELS
+        value: Valor
+      franchisee:
+        <<: *BASIC
+        <<: *MODELS
+        address: Endereço
+        address_number: Número
+        cep: CEP
+        email: E-mail
+      guest:
+        <<: *BASIC
+        <<: *MODELS
+        user_name: Usuário
+      menu_item:
+        <<: *BASIC
+        <<: *MODELS
+        icon: Ícone
+        link: Endereço
+        menu_item: Menu Pai
+        name: Texto
+        permission: Permissão
+        permission_check: Checagem de Permissão
+        position: Posição
+        published: Publicado
+      payment_status:
+        <<: *BASIC
+        <<: *MODELS
+      payment_type:
+        <<: *BASIC
+        <<: *MODELS
+      property:
+        <<: *BASIC
+        <<: *MODELS
+        address: Endereço
+        address_number: Número
+        accreditation_date: Data do Credenciamento
+        deaccreditation_date: Data do Descredenciamento
+        geolocation: Geolocalização
+        pets_accepted: Aceita Animais de Estimação
+        cancellation_period: Periodo de Cancelamento
+        breakfest: Café da Manhã
+        accreditation_statuses: Status do Credenciamento
+        type_accomodations: Tipos de Acomodação
+        cities: Cidade
+        franchisees: Representante
+      rating:
+        <<: *BASIC
+        <<: *MODELS
+      reserve:
+        <<: *BASIC
+        <<: *MODELS
+        checkin_date: Entrada
+        checkout_date: Saída
+        number_adult: Nº de adultos
+        number_child: Nº de crianças
+        number_pets: Nº de animais
+        reserve_statuses: 
+          fresh: "Nova"
+          paid: "Paga"
+          payment_not_authorized: "Pagamento Não Autorizado"
+          paid_capture_pending: "Pagamento Pendente de Captura"
+          canceled_with_refund: "Cancelada com Reembolso"
+          canceled_without_refund: "Cancelada sem Reembolso" 
+          checked_in: "Check-in Iniciado"
+          checked_out: "Check-out Finalizado"
+          evaluated: "Avaliada"    
+      role: 
+        <<: *BASIC
+        <<: *MODELS
+      service:
+        <<: *BASIC
+        <<: *MODELS
+        value: Valor
+        include_in_daily: Incluir na diária
+      setup:
+        <<: *BASIC
+        <<: *MODELS
+      special_period:
+        <<: *BASIC
+        <<: *MODELS
+        start_date: Início
+        final_date: Fim
+        value: Valor
+        promotional: Promocional
+      state:
+        <<: *BASIC
+        <<: *MODELS
+        acronym: Sigla
+        ibge: IBGE
+      type_accommodation:
+        <<: *BASIC
+        <<: *MODELS
+      type_fee:
+        <<: *BASIC
+        <<: *MODELS
+      type_trip:
+        <<: *BASIC
+        <<: *MODELS
+      unavailability:
+        <<: *BASIC
+        <<: *MODELS
+        start_date: Início
+        final_date: Fim
+      user:
+        <<: *BASIC
+        <<: *MODELS
+        cpf: CPF
+        image: Foto
+      setting:
+        percentage_of_administration: Percentual da Administração
+        percentage_of_franchisee: Percentual do Representante
+        percentage_of_property: Percentual do Proprietário
+        days_for_reserve_refund: Dias para Reembolso 
+        days_of_ticket_validity: Dias de Validade do Boleto   
+        card_cost_percentage: Percentual do Custo do Cartão
+        percentage_of_installments: Percentual de Juros de Parcelamento
+        max_of_installments_without_percentage: Máximo de Parcelas sem Juros      
+        max_of_installments: Máximo de Parcelas
+        days_to_compensation: Dias para compensação
+        percentage_of_anticipation: Porcentagem cobrada para antecipação
+  enums:
+    reserve:
+      reserve_status:         
+        paid: Paga
+        payment_not_authorized: Pagamento Não Autorizado
+        paid_capture_pending: Pagamento Pendente de Captura
+        canceled: Cancelada
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo;"
+      next: "&rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "Nenhum %{entry_name} encontrado(a)"
+          one: "Exibindo <b>1</b> %{entry_name}"
+          other: "Exibindo <b>%{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Exibindo %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> de <b>%{total}</b> no total"

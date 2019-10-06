@@ -1,0 +1,32 @@
+<section class="content-header">
+  <% if content_for? :title_page %>
+    <%= yield :title_page %>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="#">Examples</a></li>
+      <li class="active">Blank page</li>
+    </ol>
+  <% else %>
+    <% unless controller_name == "registrations" or controller_name == "sessions" %>
+      <%- value = "helpers.titles.#{action_name}" -%>
+      <h1>
+        <i class="fa fa-fw fa-caret-square-o-right"></i>
+        <%- value = "helpers.titles.#{action_name}" -%>
+
+        <%=t value %>
+        <% if action_name == "index" %>
+          <%=t 'of' %> <%= Kernel.const_get(controller_name.singularize.camelize).model_name.human.downcase.pluralize %>
+        <% else %>
+          <%= Kernel.const_get(controller_name.singularize.camelize).model_name.human.downcase %>
+        <% end -%>
+
+        <small><%= @app_name %></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Examples</a></li>
+        <li class="active">Blank page</li>
+      </ol>
+    <% end -%>
+  <% end -%>
+</section>

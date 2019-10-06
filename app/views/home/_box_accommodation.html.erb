@@ -1,0 +1,78 @@
+<% acc ||= @accommodation %>
+<% the_date ||= @the_date %>
+
+<% occuppation_status = acc.occuppation_status(the_date: the_date) %>
+
+
+<div class="box box-flex box-solid">
+  <%= link_to acc do %>
+    <div class="box-header with-border <%= occuppation_status[:color] %>">
+      <h3 class="box-title <%= occuppation_status[:color] %>">
+        <i class="fa fa-home"></i> <%= acc.name %>
+      </h3>
+      <div class="box-tools pull-right">
+        <% if can? :toggle_available, acc %>
+          <%= link_to toggle_available_accommodation_path(acc, the_date: the_date), remote: true,
+            class: "btn btn-xs btn-#{acc.available? ? 'default' : 'danger' }",
+            data: { toggle: 'tooltip',  title: "#{acc.available? ? 'Ind' : 'D'}isponibilizar" } do %>
+            <% if acc.available %>
+              <i class="fa fa-trash"></i>
+            <% else %>
+              <i class="fa fa-check-square"></i>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <div class="box-footer no-padding">
+    <ul class="nav nav-stacked">
+      <% if occuppation_status[:reserve] %>
+        <li>
+          <a href="#">
+            <span class="badge">
+              <i class="fa fa-briefcase" data-toggle="tooltip" title="Hóspede"></i>
+            </span>
+            <%= occuppation_status[:reserve].guest&.user&.name %>
+            <span class="pull-right">
+              <span class="badge <%= occuppation_status[:color] %>">
+                <i class="fa fa-<%= occuppation_status[:icon] %>" data-toggle="tooltip" title="<%= occuppation_status[:message] %>"></i>
+              </span>
+              <span class="badge">
+                <i class="fa fa-user" data-toggle="tooltip" title="<%= occuppation_status[:reserve].people_description %>"></i>
+              </span>
+              <span class="badge bg-green">
+                <i class="fa fa-money" data-toggle="tooltip" title="<%= number_to_currency occuppation_status[:reserve].total_value %> "></i>
+              </span>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="badge">
+              <i class="fa fa-arrow-up" data-toggle="tooltip" title="Entrada"></i>
+            </span>
+            <%=l occuppation_status[:reserve].checkin_date %>
+            <span class="pull-right">
+              <%=l occuppation_status[:reserve].checkout_date %> 
+              <span class="badge">
+                <i class="fa fa-arrow-down" data-toggle="tooltip" title="Saída"></i>
+              </span>
+            </span>
+          </a>
+        </li>
+      <% else %>
+        <li>
+          <a href="#">
+            <span class="message">
+              <%= occuppation_status[:message] %>
+            </span>
+            <span class="pull-right badge <%= occuppation_status[:color] %>">
+              <i class="fa fa-<%= occuppation_status[:icon] %>"></i>
+            </span>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

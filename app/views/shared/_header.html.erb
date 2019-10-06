@@ -1,0 +1,79 @@
+<header class="main-header">
+  <!-- Logo -->
+  <%= link_to root_path, class: 'logo' do %>
+    <!-- mini logo for sidebar mini 50x50 pixels -->
+    <span class="logo-mini">
+      <%= image_tag 'logoBH.png', width: '34px' %>
+      <i class='fa fa-building'></i>
+    </span>
+    <!-- logo for regular state and mobile devices -->
+    <span class="logo-lg">
+      <%= image_tag 'logoBH.png', width: '34px' %>
+      <strong>Sistema 01</strong>
+    </span>
+  <% end %>
+
+  <!-- Header Navbar: style can be found in header.less -->
+  <nav class="navbar navbar-static-top">
+    <!-- Sidebar toggle button-->
+    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </a>
+
+    <div class="navbar-custom-menu">
+      <ul class="nav navbar-nav">
+        <!-- User Account: style can be found in dropdown.less -->
+        <li class="dropdown user user-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="hidden-xs"><i class='fa fa-user'></i> Usuário</span>
+          </a>
+          <ul class="dropdown-menu">
+            <!-- User image -->
+            <li class="user-header">
+              <% if current_user.image.attached? %>             
+                <%= image_tag current_user.image %> 
+              <% else %>
+                <i class="fa fa-user fa-5x" style="color: white"></i>
+              <% end %>  
+              <p>
+               <%= current_user.name %>
+                <small>Cadastrado desde <%= current_user.created_at %> </small>
+              </p>
+            </li>
+            <!-- Menu Body
+            <li class="user-body">
+              <div class="row">
+                <div class="col-xs-4 text-center">
+                  <a href="#">Followers</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                  <a href="#">Sales</a>
+                </div>
+                <div class="col-xs-4 text-center">
+                  <a href="#">Friends</a>
+                </div>
+              </div>
+            </li>
+            -->
+            <!-- Menu Footer-->
+            <li class="user-footer">
+              <div class="pull-left">
+                <%= link_to edit_user_registration_path, class: "btn btn-default btn-flat" do %>
+                  Perfil
+                <% end %>
+              </div>
+              <div class="pull-right">
+                <div class="btn btn-default btn-flat">
+                  <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,20 @@
+<div class="box box-primary address nested-fields">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+      <%= Address.model_name.human %>
+    </h3>
+  </div>
+  <div class="box-body">
+    <div class="row ">
+      <%= f.input :description, placeholder: 'Ex: Casa, Trabalho', wrapper_html: { class: 'col-lg-3' } %>
+      <%= f.input :zipcode, wrapper_html: { class: 'col-lg-3' } %>
+      <%= f.input :street, wrapper_html: { class: 'col-lg-4' } %>
+      <%= f.input :number, wrapper_html: { class: 'col-lg-2' } %>
+      <%= f.input :complement, wrapper_html: { class: 'col-lg-4' } %>
+      <%= f.input :district, wrapper_html: { class: 'col-lg-4' } %>
+      <%= f.association :city, wrapper_html: { class: 'col-lg-4' },
+        collection: Proc.new{ City.order(:name).map{ |c| [c.name, c.id, data: { ibge: c.ibge }] } }
+      %>
+    </div>
+  </div>
+</div>

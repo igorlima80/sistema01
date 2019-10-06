@@ -1,0 +1,23 @@
+<%= simple_form_for object do |f| %>
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">
+        <%= User.model_name.human %>
+      </h3>
+    </div>
+    <div class="box-body">
+      <div class="row">
+        <%= f.input :name, wrapper_html: { class: 'col-md-3' } %>
+        <%= f.input :email, wrapper_html: { class: 'col-md-3' } %>
+        <%= f.input :password, wrapper_html: { class: 'col-md-3' } %>
+      </div>
+    </div>
+  </div>
+
+  <div class="box box-primary">
+    <div class="box-footer">
+      <%= link_to t('.back', default: t("helpers.links.back")), users_path, class: 'btn btn-default'  %>
+      <%= f.submit  t('.save', default: t("helpers.links.save")), class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

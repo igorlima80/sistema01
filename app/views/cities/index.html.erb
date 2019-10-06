@@ -1,0 +1,28 @@
+<%= render 'shared/index', list: @cities,
+  sort_fields: ['name', 'latitude', 'longitude'],
+  search_fields: [
+    { field: 'name_cont', label: 'Pesquisar' }
+  ]
+%>
+
+<% if false %>
+  <% State.all.order(:id).each do |s| %>
+    State.create(
+      id: <%= s.id %>,
+      name: "<%= s.name %>",
+      acronym: "<%= s.acronym %>",
+      ibge: "<%= s.ibge %>"
+    )<br />
+  <% end %>
+
+  <% City.all.order(:id).each do |c| %>
+    City.create(
+      id: <%= c.id %>,
+      name: "<%= c.name %>",
+      ibge: "<%= c.ibge %>",
+      state_id: <%= c.state_id %>,
+      latitude: <%= c.latitude %>,
+      longitude: <%= c.longitude %>
+    )<br />
+  <% end %>
+<% end %>

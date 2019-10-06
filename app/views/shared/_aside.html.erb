@@ -1,0 +1,64 @@
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">MENU PRINCIPAL</li>
+      <% @sidebar_menus.each do |mi| %>
+        <% if can? mi.permission.to_sym, mi.permission_check.to_sym or
+          (Object.const_defined?(mi.permission_check.titleize.gsub(' ', '')) and can? mi.permission.to_sym, mi.permission_check.classify.constantize) %>
+          <% unless mi.menu_items.sidebar.exists? %>
+            <li <%= "class=active" if controller_name == mi.active_test %>>
+              <%= link_to eval(mi.link) do %>
+                <i class="fa fa-<%= mi.icon %>"></i> <span><%= mi.name %></span>
+              <% end %>
+            </li>
+          <% else %>
+            <li class="treeview <%= 'active' if mi.menu_items.pluck(:active_test).include? controller_name %>">
+              <a href="#">
+                <i class="fa fa-<%= mi.icon %>"></i><span><%= mi.name %></span>
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <% mi.menu_items.sidebar.each do |c| %>
+                  <!-- mostrar filhos do menu apenas se tiver permissão -->
+                  <% if can? c.permission.to_sym, c.permission_check.to_sym or
+                    (Object.const_defined?(c.permission_check.titleize.gsub(' ', '')) and can? c.permission.to_sym, c.permission_check.classify.constantize) %>
+                    <% unless c.menu_items.exists? %>
+                      <li <%= "class=active" if controller_name == c.active_test %>>
+                        <%= link_to eval(c.link), target: c.target do %>
+                            <i class="fa fa-<%= c.icon %>"></i><%= c.name %>
+                        <% end %>
+                      </li>
+                    <% else %>
+                      <li class="treeview <%= 'active' if mi.menu_items.pluck(:active_test).include? controller_name %>">
+                        <a href="#">
+                          <i class="fa fa-<%= c.icon %>"></i><span><%= c.name %></span>
+                          <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+                        </a>
+                        <ul class="treeview-menu">
+                          <% c.menu_items.sidebar.each do |cc| %>
+                            <li <%= "class=active" if controller_name == cc.active_test %>>
+                              <%= link_to eval(cc.link), target: cc.target do %>
+                                <i class="fa fa-<%= cc.icon %>"></i><%= cc.name %>
+                              <% end %>
+                            </li>
+                          <% end %>
+                        </ul>
+                      </li>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>

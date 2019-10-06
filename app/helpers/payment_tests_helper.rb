@@ -1,0 +1,2 @@
+module PaymentTestsHelper
+end

@@ -1,0 +1,156 @@
+<%= content_for :title_page do %>
+  <h1>
+    <i class="fa fa-fw fa-television"></i>
+    Dashboard <%= @user_kind %>
+    <small><%= @app_name %></small>
+  </h1>
+<% end %>
+
+<div class="nav-without-background">
+  <div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a href="#tab_1" data-toggle="tab">
+          <i class="fa fa-hashtag fa-2x" data-toggle='tooltip' title='Principal'></i>
+        </a>
+      </li>
+      <li>
+        <a href="#tab_2" data-toggle="tab">
+          <i class="fa fa-braille fa-2x" data-toggle='tooltip' title='Painel 2'></i>
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab_1">
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-aqua"><i class="fa fa-hotel"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Totalizador 1</span>
+                <span class="info-box-number">00</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-red"><i class="fa fa-calendar"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Lista 01</span>
+                  <span class="info-box-number">00</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix visible-sm-block"></div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-green"><i class="fa fa-calendar-check-o"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Lista 2</span>
+                <span class="info-box-number"></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-yellow"><i class="fa fa-money"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Valor 01</span>
+                <span class="info-box-number"><%= number_to_currency 0 %></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="box box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title">
+                  Lista
+                </h3>
+              </div>
+              <div class="box-body no-padding">
+                <table class="table table-stripped datatables_paginate_and_search">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Nome</th>
+                      <th class='text-right'>coluna1</th>
+                      <th class='text-center'>Coluna2</th>
+                      <th class='text-center'>Coluna3</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td class='text-right'>10</td>
+                        <td class='text-center'>10</td>
+                        <td class='text-center'>10</td>
+                      </tr>
+                   
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+           lista
+          </div>
+        </div>
+      </div>
+      <!-- /.tab-pane -->
+      <div class="tab-pane" id="tab_2">
+        <div class="box box-solid">
+          <div class="box-header with-border">
+            <h3 class="box-title">
+              <b>
+                Filtrar
+              </b>
+            </h3>
+            <div class="box-body">
+             
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <span class="label bg-red">Status 01</span>
+            <span class="label bg-orange">Status 02</span>
+            <span class="label bg-green">Status 03</span>
+          </div>
+        </div>
+        <br>
+        <div class="row row-flex">
+         
+        </div>
+      </div>
+      <!-- /.tab-pane -->
+    </div>
+    <!-- /.tab-content -->
+  </div>
+</div>
+
+
