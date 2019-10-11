@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :members
+  resources :leaders
   resources :events
   resources :payment_tests
   resources :menu_items
@@ -45,11 +47,9 @@ Rails.application.routes.draw do
       post :cancel, on: :member
     end  
 
-    resources :guests, only: [:create, :show] do
-      post :update, on: :member
-      get :reserves, on: :member
-      get :find_brand, on: :member
-      post :find_by_email, on: :collection    
+    resources :leaders, only: [:show] do
+      post :login, on: :collection
+        
     end
     
     resources :ratings, only: [:create] 

@@ -1,15 +1,28 @@
-class Api::GuestsController < Api::ApplicationController
+class Api::LeadersController < Api::ApplicationController
   # load_and_authorize_resource
 
+  def login
+    @leader = {}
+    @leader = Leader.joins(:user).where(users: { cpf: params[:cpf] }).first
+
+    if @leader
+      render json: @leader.leader_json
+    else
+      render json: nil
+    end
+
+  end  
+  
   def show
-    @guest = {}
-    @guest = Guest.find_by(id: params[:id])
-    if @guest
-      render json: @guest.guest_json
+    @leader = {}
+    @leader = Leader.find_by(id: params[:id])
+    if @leader
+      render json: @leader.guest_json
     else
       render json: nil
     end
   end
+
  
   # POST /api/guests
   def create    

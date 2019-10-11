@@ -1,5 +1,5 @@
 MenuItem.delete_all
-#MenuItem.create name: 'Representantes', icon: 'black-tie', link: 'franchisees_path', position: 1, target: '_self', permission: 'manage', permission_check: 'Franchisee', menu_item_id: nil, published: true, active_test: "controller_name == 'franchisees'"
+MenuItem.create name: 'Líderes', icon: 'black-tie', link: 'leaders_path', position: 1, target: '_self', permission: 'manage', permission_check: 'Leader', menu_item_id: nil, published: true, active_test: "controller_name == 'leaders'"
 #MenuItem.create name: 'Proprietários', icon: 'user-plus', link: 'properties_path', position: 2, target: '_self', permission: 'manage', permission_check: 'Property', menu_item_id: nil, published: true, active_test: "controller_name == 'properties'"
 #MenuItem.create name: 'Hóspedes', icon: 'briefcase', link: 'guests_path', position: 3, target: '_self', permission: 'manage', permission_check: 'Guest', menu_item_id: nil, published: true, active_test: "controller_name == 'guests'"
 #MenuItem.create name: 'Acomodações', icon: 'hotel', link: 'accommodations_path', position: 5, target: '_self', permission: 'manage', permission_check: 'Accommodation', menu_item_id: nil, published: true, active_test: "controller_name == 'accommodations'"

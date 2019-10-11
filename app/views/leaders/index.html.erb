@@ -1,0 +1,6 @@
+<%= render 'shared/index',
+  list: @leaders,
+  show_columns: [
+    'id', 'user.cpf', 'user.name', 'user.email', 'address.city.name_with_state'
+  ]
+%>

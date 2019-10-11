@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_08_154930) do
+ActiveRecord::Schema.define(version: 2019_10_11_014330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -90,6 +90,28 @@ ActiveRecord::Schema.define(version: 2019_06_08_154930) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "leaders", force: :cascade do |t|
+    t.string "mother_name"
+    t.string "father_name"
+    t.string "rg"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_leaders_on_user_id"
+  end
+
+  create_table "members", force: :cascade do |t|
+    t.string "name"
+    t.bigint "leader_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["leader_id"], name: "index_members_on_leader_id"
+  end
+
   create_table "menu_items", force: :cascade do |t|
     t.string "name"
     t.string "link"
@@ -162,5 +184,7 @@ ActiveRecord::Schema.define(version: 2019_06_08_154930) do
   add_foreign_key "addresses", "cities"
   add_foreign_key "cities", "states"
   add_foreign_key "events", "users"
+  add_foreign_key "leaders", "users"
+  add_foreign_key "members", "leaders"
   add_foreign_key "menu_items", "menu_items"
 end
