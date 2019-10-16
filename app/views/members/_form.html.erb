@@ -1,0 +1,45 @@
+<%= simple_form_for object do |f| %>
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">
+        <%= Member.model_name.human %>
+      </h3>
+    </div>
+    <div class="box-body">
+     
+        <div class="row user nested-fields">
+        <div class = 'col-md-8' >
+          <div class="row">
+              <%= f.input :name, wrapper_html: { class: 'col-md-12' } %>
+              <%= f.input :cpf, wrapper_html: { class: 'col-md-12' } %>      
+              <%= f.association :leader, wrapper_html: { class: 'col-lg-4' },
+                collection: Leader.all
+              %>
+          
+          </div>
+        </div>
+       
+    </div>
+      
+    </div>
+  </div>
+  
+
+  <%= f.simple_fields_for :address do |address| %>
+    <%= render 'shared/address_fields', f: address %>
+  <% end %> 
+
+   
+   <div class="row user nested-fields">
+    <div class="tab-pane" id="tab_2">
+      
+    </div>
+   </div>  
+
+  <div class="box box-primary">
+    <div class="box-footer">
+      <%= link_to t('.back', default: t("helpers.links.back")), members_path, class: 'btn btn-default'  %>
+      <%= f.submit  t('.save', default: t("helpers.links.save")), class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

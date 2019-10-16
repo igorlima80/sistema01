@@ -4,7 +4,7 @@ class Leader < ApplicationRecord
     has_many :members
     has_one_attached :image, dependent: :destroy
 
-    after_create :assign_role
+    after_create :assign_role 
 
     validates_associated :user
     accepts_nested_attributes_for :user, allow_destroy: true

@@ -23,8 +23,9 @@
 </div>
 
 <%= render 'shared/index', list: @leader.members,
-  # sort_all: true,
-  #additional_columns: ['user_name'],
- # excluded_columns: ['user_id'],
+  show_columns: [
+    'id', 'name', 'cpf', 'address.city.name_with_state'
+  ], 
   hide_links: true
 %>
+

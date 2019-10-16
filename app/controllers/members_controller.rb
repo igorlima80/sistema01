@@ -1,9 +1,9 @@
-class MembersController < Admin::ApplicationController
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+class MembersController  < Admin::ApplicationController
+  load_and_authorize_resource
 
-  # GET /members
+  # GET /member
   def index
-    @members = Member.all
+   @members = Member.all
   end
 
   # GET /members/1
@@ -13,6 +13,7 @@ class MembersController < Admin::ApplicationController
   # GET /members/new
   def new
     @member = Member.new
+    @member.build_address
   end
 
   # GET /members/1/edit
@@ -24,7 +25,7 @@ class MembersController < Admin::ApplicationController
     @member = Member.new(member_params)
 
     if @member.save
-      redirect_to @member, notice: 'Member was successfully created.'
+      redirect_to @member, notice: 'Member was successfully created.' 
     else
       render :new
     end
@@ -39,7 +40,7 @@ class MembersController < Admin::ApplicationController
     end
   end
 
-  # DELETE /members/1
+  # DELETE /leaders/1
   def destroy
     @member.destroy
     redirect_to members_url, notice: 'Member was successfully destroyed.'
@@ -53,6 +54,12 @@ class MembersController < Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def member_params
-      params.require(:member).permit(:name, :leader_id)
+      params.require(:member).permit(:name, :leader_id, :cpf,
+       
+          address_attributes: [
+            :id, :_destroy, :description, :zipcode, :street, :number, :complement,
+            :district, :city_id
+          ]      
+      )
     end
 end

@@ -5,7 +5,6 @@ class CreateMembers < ActiveRecord::Migration[5.2]
       t.references :leader, foreign_key: true
       t.float :latitude
       t.float :longitude
-
       t.timestamps
     end
   end
