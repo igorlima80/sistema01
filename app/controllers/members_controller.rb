@@ -23,7 +23,7 @@ class MembersController  < Admin::ApplicationController
   # POST /members
   def create
     @member = Member.new(member_params)
-
+    @member.status = "unvisited"
     if @member.save
       redirect_to @member, notice: 'Member was successfully created.' 
     else
@@ -54,7 +54,7 @@ class MembersController  < Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def member_params
-      params.require(:member).permit(:name, :leader_id, :cpf,
+      params.require(:member).permit(:name, :leader_id, :cpf, :status,
        
           address_attributes: [
             :id, :_destroy, :description, :zipcode, :street, :number, :complement,
