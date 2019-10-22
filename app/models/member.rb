@@ -19,6 +19,10 @@ def geo_address
   address&.geo_address
 end
 
+def translate_status
+  self.human_enum_name(:status, self.status)
+end
+
 end
 
 

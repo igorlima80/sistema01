@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_185404) do
+ActiveRecord::Schema.define(version: 2019_10_22_021525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_185404) do
     t.datetime "updated_at", null: false
     t.string "cpf"
     t.integer "status"
+    t.date "birthdate"
     t.index ["leader_id"], name: "index_members_on_leader_id"
   end
 

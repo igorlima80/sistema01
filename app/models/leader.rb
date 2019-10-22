@@ -29,12 +29,16 @@ class Leader < ApplicationRecord
   def geo_address
     address&.geo_address
   end
+
+  def image_attached?
+    self.image.attached?
+  end
  
 
   def leader_json
     self.to_json(
       except: [:email, :name, :city_id, :user_id, :created_at, :updated_at],
-      include: [
+      include: [:image_attached?,
         user: {
           except: [:generated_password, :uid, :userable_id, :userable_type, :created_at, :updated_at]
       },

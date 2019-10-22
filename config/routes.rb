@@ -25,7 +25,8 @@ Rails.application.routes.draw do
         
     resources :leaders, only: [:show] do
       post :login, on: :collection
-        
+      post :update, on: :member
+      get :members, on: :member  
     end
     
     

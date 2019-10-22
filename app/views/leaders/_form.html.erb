@@ -11,6 +11,25 @@
       <% end %>
     </div>
   </div>
+
+
+
+  <div class="box box-primary address nested-fields">
+  <div class="box-header with-border">
+    <h3 class="box-title">
+       Outros dados 
+    </h3>
+  </div>
+  <div class="box-body">
+    <div class="row ">
+    <%= f.input :mother_name, wrapper_html: { class: 'col-md-4' } %>
+    <%= f.input :father_name, wrapper_html: { class: 'col-md-4' } %>      
+    <%= f.input :rg, wrapper_html: { class: 'col-lg-4' } %>          
+    </div>
+  </div>
+</div>
+
+ 
   
 
   <%= f.simple_fields_for :address do |address| %>
