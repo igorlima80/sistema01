@@ -23,6 +23,39 @@ def translate_status
   self.human_enum_name(:status, self.status)
 end
 
+def member_json
+  self.to_json(
+    except: [:created_at, :updated_at],
+    include: [     
+        address: {            
+          include: [
+            city: {
+              except: [:id, :state_id, :created_at, :updated_at],
+              include: [
+                state: {
+                  except: [:id, :ibge, :created_at, :updated_at]
+                }
+              ]
+            }
+          ]
+        }
+  ])
+end
+
+
+
+def member_params
+  params.require(:member).permit(:name, :leader_id, :cpf, :status,
+   
+      address_attributes: [
+        :id, :_destroy, :description, :zipcode, :street, :number, :complement,
+        :district, :city_id
+      ]      
+  )
+end
+
+
+
 end
 
 

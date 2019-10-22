@@ -28,7 +28,11 @@ Rails.application.routes.draw do
       post :update, on: :member
       get :members, on: :member  
     end
-    
+
+    resources :members, only: [:show] do
+      post :find_unvisited, on: :collection
+      post :find, on: :collection
+    end
     
   end
 
