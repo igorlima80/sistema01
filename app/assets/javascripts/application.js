@@ -33,6 +33,7 @@
 //= require select2/dist/js/i18n/pt-BR
 //= require jquery.maskMoney.js
 
+
 function via_cep(input) {
   form = input.parent().parent().parent();
   $.post("/utils/zipcode", { zipcode: input.val() }, function(data) {
@@ -44,6 +45,8 @@ function via_cep(input) {
   });
 }
 
+
+
 function money() {
   $('.currency').maskMoney({
     prefix: 'R$ ',
@@ -52,13 +55,18 @@ function money() {
   });
 }
 
+
+
 $(document).ready(function(){
+  initializeMasks();
   $('[data-toggle="tooltip"]').tooltip({ placement: 'top' });
 
   $(".select2").select2({
     theme: "bootstrap",
     language: 'pt-BR'
   });
+
+  $('.mask_cpf').inputmask({mask: "999.999.999-99"});
 
   $('.datatables').DataTable({
     paging: false,

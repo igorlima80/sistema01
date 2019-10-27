@@ -37,6 +37,10 @@
           <th width='15%'><%= Member.human_attribute_name(:leader) %></th>
           <td><%= @member.leader.name %></td>
         </tr>
+        <tr>
+          <th width='15%'><%= Member.human_attribute_name(:status) %></th>
+          <td><%= @member.translate_status %></td>
+        </tr>
          
       </tbody>
     </table>
@@ -47,5 +51,10 @@
   
 </div>
 
-
+<%= render 'shared/index', list: @member.visits,
+  show_columns: [    
+    'date_visit', 'observation', 'number_of_voters'
+  ], 
+  hide_links: true
+%>
 

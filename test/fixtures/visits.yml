@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_visit: 2019-10-27
+  observation: MyText
+  number_of_voters: 1
+  member: one
+
+two:
+  date_visit: 2019-10-27
+  observation: MyText
+  number_of_voters: 1
+  member: two

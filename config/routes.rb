@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :visits
   resources :members
   resources :leaders
   resources :events
@@ -31,6 +32,12 @@ Rails.application.routes.draw do
 
     resources :members, only: [:show] do
       post :find_unvisited, on: :collection
+      post :create, on: :member
+      post :find, on: :collection
+    end
+
+    resources :visits, only: [:create, :show] do
+      post :create, on: :member
       post :find, on: :collection
     end
     

@@ -1,7 +1,7 @@
 <div class="row user nested-fields">
   <div class = 'col-md-8' >
     <div class="row">
-      <%= f.input :cpf, wrapper_html: { class: 'col-md-12' } %>
+      <%= f.input :cpf, wrapper_html: { class: 'col-md-12' },  placeholder: 'XXX.XXX.XXX-XX', class: 'cpf'  %>
       <%= f.input :name, wrapper_html: { class: 'col-md-12' } %>
       <%= f.input :email, wrapper_html: { class: 'col-md-12' } %>
       <%= f.input :password, wrapper_html: { class: 'col-md-12' } if f.object.new_record? %>

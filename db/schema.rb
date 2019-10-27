@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_021525) do
+ActiveRecord::Schema.define(version: 2019_10_27_130901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -184,10 +184,21 @@ ActiveRecord::Schema.define(version: 2019_10_22_021525) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.date "date_visit"
+    t.text "observation"
+    t.integer "number_of_voters"
+    t.bigint "member_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["member_id"], name: "index_visits_on_member_id"
+  end
+
   add_foreign_key "addresses", "cities"
   add_foreign_key "cities", "states"
   add_foreign_key "events", "users"
   add_foreign_key "leaders", "users"
   add_foreign_key "members", "leaders"
   add_foreign_key "menu_items", "menu_items"
+  add_foreign_key "visits", "members"
 end

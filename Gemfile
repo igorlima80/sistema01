@@ -134,3 +134,4 @@ gem 'webpacker', '~> 4.x'
 
 # CPF and CNPJ validations for ActiveModel and Rails
 gem 'validates_cpf_cnpj'
+
