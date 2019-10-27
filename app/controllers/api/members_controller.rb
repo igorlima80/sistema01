@@ -27,6 +27,31 @@ def find_unvisited
     }
   end
 
+  def show
+    @member = {}
+    @member = Member.find_by(id: params[:id])
+    if @member
+      render json:  @member.as_json(
+        methods: [:translate_status],
+        except: [:created_at, :updated_at], 
+        include: [
+          address: {
+            except: [:id, :city_id, :addressable_type, :addressable_id, :created_at, :updated_at]
+          },
+          visits:{
+            only: [:date_visit, :observation, :number_of_voters]
+          }        
+        ]
+      )
+    else
+      render json:  {
+        message: @member.errors.full_messages,
+        member: @member.as_json,
+        status: :unprocessable_entity
+      }
+    end
+  end
+
   def find
     @members  = []
          
@@ -47,7 +72,7 @@ def find_unvisited
         include: [
           address: {
             except: [:id, :city_id, :addressable_type, :addressable_id, :created_at, :updated_at]
-          }        
+          }    
         ]
       )
     }
@@ -69,7 +94,7 @@ def find_unvisited
     else
       render json:  {
         message: @member.errors.full_messages,
-        reserve: @member.as_json,
+        member: @member.as_json,
         status: :unprocessable_entity
       }
     end
