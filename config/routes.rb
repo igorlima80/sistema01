@@ -24,20 +24,17 @@ Rails.application.routes.draw do
     get 'settings/show'
     
         
-    resources :leaders, only: [:show] do
+    resources :leaders, only: [:update, :show] do
       post :login, on: :collection
-      post :update, on: :member
       get :members, on: :member  
     end
 
-    resources :members, only: [:show] do
-      post :find_unvisited, on: :collection
-      post :create, on: :member
+    resources :members, only: [:create, :show] do      
+      post :find_unvisited, on: :collection      
       post :find, on: :collection
     end
 
     resources :visits, only: [:create, :show] do
-      post :create, on: :member
       post :find, on: :collection
     end
     

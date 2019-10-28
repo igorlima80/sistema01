@@ -1,8 +1,11 @@
 class Member < ApplicationRecord
+  include TranslateEnum
+
   enum status: {
     visited: 0,    
     unvisited: 1   
   }
+  translate_enum :status
   
   belongs_to :leader, dependent: :destroy, optional: true
   has_one :address, dependent: :destroy, as: :addressable

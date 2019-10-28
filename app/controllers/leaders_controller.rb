@@ -17,7 +17,7 @@ class LeadersController  < Admin::ApplicationController
   end
 
   # GET /leaders/1/edit
-  def edit
+  def edit    
   end
 
   # POST /leaders

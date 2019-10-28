@@ -12,7 +12,7 @@
           <div class="row">
               <%= f.input :name, wrapper_html: { class: 'col-md-4' } %>
               <%= f.input :cpf, wrapper_html: { class: 'col-md-4' } %> 
-              <%= f.input :birthdate, as: :date, start_year: Date.today.year - 90,
+              <%= f.input :birthdate, as: :date, html5: true, start_year: Date.today.year - 90,
                                       end_year: Date.today.year - 16, 
                                       order: [:day, :month, :year], wrapper_html: { class: 'col-md-4' } %>     
               <%= f.association :leader, wrapper_html: { class: 'col-lg-4' },

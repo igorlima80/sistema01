@@ -30,6 +30,10 @@
           <td><%= @member.cpf %></td>
         </tr>
         <tr>
+          <th width='15%'><%= Member.human_attribute_name(:birthdate) %></th>
+          <td><%= @member.birthdate %></td>
+        </tr>
+        <tr>
           <th width='15%'><%= Member.human_attribute_name(:address) %></th>
           <td><%= @member.address.full_address %></td>
         </tr>

@@ -19,19 +19,6 @@ pt-BR:
         description: Descrição
         created_at: Criação
         updated_at: Atualização
-      accommodation:
-        <<: *BASIC
-        <<: *MODELS
-        value_per_night: Valor da Diária
-        maximum_adult: Máximo de Adultos
-        maximum_child: Máximo de Crianças
-        available: Disponível
-        rating: Nota de Avaliação
-        images: Imagens
-        convenience: Comodidade
-      accreditation_status:
-        <<: *BASIC
-        <<: *MODELS
       address:
         <<: *BASIC
         <<: *MODELS
@@ -40,47 +27,16 @@ pt-BR:
         complement: Complemento
         district: Bairro
         zipcode: CEP
-      bank:
-        <<: *BASIC
-        <<: *MODELS
-      bank_account:
-        <<: *BASIC
-        <<: *MODELS
-        agency_number: Agência
-        agency_check_number: Dígito
-        account_number: Conta
-        account_check_number: Dígito
-      cancellation:
-        <<: *BASIC
-        <<: *MODELS
       city:
         <<: *BASIC
         <<: *MODELS
         ibge: IBGE
-      convenience:
-        <<: *BASIC
-        <<: *MODELS
       event:
         <<: *BASIC
         <<: *MODELS
         start_date: Início
         final_date: Fim
         value: Valor
-      fee:
-        <<: *BASIC
-        <<: *MODELS
-        value: Valor
-      franchisee:
-        <<: *BASIC
-        <<: *MODELS
-        address: Endereço
-        address_number: Número
-        cep: CEP
-        email: E-mail
-      guest:
-        <<: *BASIC
-        <<: *MODELS
-        user_name: Usuário
       menu_item:
         <<: *BASIC
         <<: *MODELS
@@ -92,102 +48,36 @@ pt-BR:
         permission_check: Checagem de Permissão
         position: Posição
         published: Publicado
-      payment_status:
+      member:
         <<: *BASIC
         <<: *MODELS
-      payment_type:
+        name_with_state: Cidade
+        birthdate: Data de Nascimento
+        statuses: 
+          unvisited: Não Visitado
+          visited: Visitado
+      visit:
+        date_visit: Data da Visita
+        observation: Observação
+        number_of_voters: Número de Eleitores
+      leader:
         <<: *BASIC
         <<: *MODELS
-      property:
-        <<: *BASIC
-        <<: *MODELS
-        address: Endereço
-        address_number: Número
-        accreditation_date: Data do Credenciamento
-        deaccreditation_date: Data do Descredenciamento
-        geolocation: Geolocalização
-        pets_accepted: Aceita Animais de Estimação
-        cancellation_period: Periodo de Cancelamento
-        breakfest: Café da Manhã
-        accreditation_statuses: Status do Credenciamento
-        type_accomodations: Tipos de Acomodação
-        cities: Cidade
-        franchisees: Representante
-      rating:
-        <<: *BASIC
-        <<: *MODELS
-      reserve:
-        <<: *BASIC
-        <<: *MODELS
-        checkin_date: Entrada
-        checkout_date: Saída
-        number_adult: Nº de adultos
-        number_child: Nº de crianças
-        number_pets: Nº de animais
-        reserve_statuses: 
-          fresh: "Nova"
-          paid: "Paga"
-          payment_not_authorized: "Pagamento Não Autorizado"
-          paid_capture_pending: "Pagamento Pendente de Captura"
-          canceled_with_refund: "Cancelada com Reembolso"
-          canceled_without_refund: "Cancelada sem Reembolso" 
-          checked_in: "Check-in Iniciado"
-          checked_out: "Check-out Finalizado"
-          evaluated: "Avaliada"    
+        mother_name: Nome da Mãe
+        father_name: Nome do Pai
       role: 
         <<: *BASIC
         <<: *MODELS
-      service:
-        <<: *BASIC
-        <<: *MODELS
-        value: Valor
-        include_in_daily: Incluir na diária
-      setup:
-        <<: *BASIC
-        <<: *MODELS
-      special_period:
-        <<: *BASIC
-        <<: *MODELS
-        start_date: Início
-        final_date: Fim
-        value: Valor
-        promotional: Promocional
       state:
         <<: *BASIC
         <<: *MODELS
         acronym: Sigla
         ibge: IBGE
-      type_accommodation:
-        <<: *BASIC
-        <<: *MODELS
-      type_fee:
-        <<: *BASIC
-        <<: *MODELS
-      type_trip:
-        <<: *BASIC
-        <<: *MODELS
-      unavailability:
-        <<: *BASIC
-        <<: *MODELS
-        start_date: Início
-        final_date: Fim
       user:
         <<: *BASIC
         <<: *MODELS
         cpf: CPF
         image: Foto
-      setting:
-        percentage_of_administration: Percentual da Administração
-        percentage_of_franchisee: Percentual do Representante
-        percentage_of_property: Percentual do Proprietário
-        days_for_reserve_refund: Dias para Reembolso 
-        days_of_ticket_validity: Dias de Validade do Boleto   
-        card_cost_percentage: Percentual do Custo do Cartão
-        percentage_of_installments: Percentual de Juros de Parcelamento
-        max_of_installments_without_percentage: Máximo de Parcelas sem Juros      
-        max_of_installments: Máximo de Parcelas
-        days_to_compensation: Dias para compensação
-        percentage_of_anticipation: Porcentagem cobrada para antecipação
   enums:
     member:
       status:         
