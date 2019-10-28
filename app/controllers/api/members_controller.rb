@@ -2,7 +2,8 @@ class Api::MembersController < Api::ApplicationController
     #load_and_authorize_resource
 
 def find_unvisited
-    @members  = []
+    @leader = Leader.find_by(id: params[:id])
+    @members  = @leader.members
          
     if params[:latitude] && params[:longitude]      
       if params[:radius]
@@ -11,11 +12,14 @@ def find_unvisited
         @members = Member.near([params[:latitude].to_f, params[:longitude].to_f])
       end          
     end
-    
+
+    if @members.any?
+      @members = @members.where(status: "unvisited")
+    end
     render json: {
       success: @members.any?,
       message: "#{@members.to_a&.size} membros encontrados",
-      collection: @members.where(status: "unvisited").as_json(
+      collection: @members.as_json(
         methods: [:translate_status],
         except: [:created_at, :updated_at], 
         include: [
@@ -53,7 +57,8 @@ def find_unvisited
   end
 
   def find
-    @members  = []
+    @leader = Leader.find_by(id: params[:id])
+    @members  = @leader.members
          
     if params[:latitude] && params[:longitude]      
       if params[:radius]
