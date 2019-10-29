@@ -12,7 +12,7 @@ pt-BR:
       role: Permissão
       state: Estado
       user: Usuário
-      setting: Configurações
+      setting: Configurações    
     attributes:
       name_and_description: &BASIC
         name: Nome

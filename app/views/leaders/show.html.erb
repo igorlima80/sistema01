@@ -19,6 +19,32 @@
   <div class="box-body no-padding">
     <%= render 'users/user_table', object: @leader %>
   </div>
+
+
+  <div class="box-body no-padding">
+    <div class="row">
+      <div class="col-md-9">
+        <table class="table table-bordered table-striped">
+          <tbody>           
+            <tr>
+              <th width='15%'><%= Leader.human_attribute_name(:mother_name) %></th>
+              <td><%= @leader.mother_name %></td>
+            </tr>
+            <tr>
+              <th width='15%'><%= Leader.human_attribute_name(:father_name) %></th>
+              <td><%= @leader.father_name %></td>
+            </tr>           
+            <tr>
+              <th width='15%'><%= Leader.human_attribute_name(:rg) %></th>
+              <td><%= @leader.rg %></td>
+            </tr>   
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+  </div>
+
   
 </div>
 

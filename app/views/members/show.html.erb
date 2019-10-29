@@ -1,7 +1,7 @@
 <div class="box box-primary">
   <div class="box-header with-border">
     <h3 class="box-title">
-      Dados do Eleitor
+      Dados do Membro
       <% if can? :new, Member %>
         <%= link_to members_path, class: "btn btn-primary btn-xs", data: { toggle: 'tooltip', placement: 'top', title: 'Cadastrar' } do %>
           Cadastrar <i class="fa fa-plus"></i>
@@ -17,40 +17,40 @@
   </div>
   
   <div class="box-body no-padding">
-  <div class="row">
-  <div class="col-md-9">
-    <table class="table table-bordered table-striped">
-      <tbody>           
-        <tr>
-          <th width='15%'><%= Member.human_attribute_name(:name) %></th>
-          <td><%= @member.name %></td>
-        </tr>
-        <tr>
-          <th width='15%'><%= Member.human_attribute_name(:cpf) %></th>
-          <td><%= @member.cpf %></td>
-        </tr>
-        <tr>
-          <th width='15%'><%= Member.human_attribute_name(:birthdate) %></th>
-          <td><%= @member.birthdate %></td>
-        </tr>
-        <tr>
-          <th width='15%'><%= Member.human_attribute_name(:address) %></th>
-          <td><%= @member.address.full_address %></td>
-        </tr>
-        <tr>
-          <th width='15%'><%= Member.human_attribute_name(:leader) %></th>
-          <td><%= @member.leader.name %></td>
-        </tr>
-        <tr>
-          <th width='15%'><%= Member.human_attribute_name(:status) %></th>
-          <td><%= @member.translate_status %></td>
-        </tr>
-         
-      </tbody>
-    </table>
-  </div>
-  
-</div>
+    <div class="row">
+      <div class="col-md-9">
+        <table class="table table-bordered table-striped">
+          <tbody>           
+            <tr>
+              <th width='15%'><%= Member.human_attribute_name(:name) %></th>
+              <td><%= @member.name %></td>
+            </tr>
+            <tr>
+              <th width='15%'><%= Member.human_attribute_name(:cpf) %></th>
+              <td><%= @member.cpf %></td>
+            </tr>
+            <tr>
+              <th width='15%'><%= Member.human_attribute_name(:birthdate) %></th>
+              <td><%= @member.birthdate %></td>
+            </tr>
+            <tr>
+              <th width='15%'><%= Member.human_attribute_name(:address) %></th>
+              <td><%= @member.address.full_address %></td>
+            </tr>
+            <tr>
+              <th width='15%'><%= Member.human_attribute_name(:leader) %></th>
+              <td><%= @member.leader.name %></td>
+            </tr>
+            <tr>
+              <th width='15%'><%= Member.human_attribute_name(:status) %></th>
+              <td><%= @member.translate_status %></td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
   </div>
   
 </div>

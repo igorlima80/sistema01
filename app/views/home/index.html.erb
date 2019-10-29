@@ -14,22 +14,18 @@
           <i class="fa fa-hashtag fa-2x" data-toggle='tooltip' title='Principal'></i>
         </a>
       </li>
-      <li>
-        <a href="#tab_2" data-toggle="tab">
-          <i class="fa fa-braille fa-2x" data-toggle='tooltip' title='Painel 2'></i>
-        </a>
-      </li>
+      
     </ul>
     <div class="tab-content">
       <div class="tab-pane active" id="tab_1">
         <div class="row">
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-              <span class="info-box-icon bg-aqua"><i class="fa fa-hotel"></i></span>
+              <span class="info-box-icon bg-aqua"><i class="fa fa-black-tie"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Totalizador 1</span>
-                <span class="info-box-number">00</span>
+                <span class="info-box-text">Líderes</span>
+                <span class="info-box-number"><%= @leaders.size %></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -38,11 +34,11 @@
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-              <span class="info-box-icon bg-red"><i class="fa fa-calendar"></i></span>
+              <span class="info-box-icon bg-yellow"><i class="fa fa-user-plus"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Lista 01</span>
-                  <span class="info-box-number">00</span>
+                <span class="info-box-text">Membros</span>
+                <span class="info-box-number"><%= @members.size %></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -58,8 +54,8 @@
               <span class="info-box-icon bg-green"><i class="fa fa-calendar-check-o"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Lista 2</span>
-                <span class="info-box-number"></span>
+                <span class="info-box-text">Membros Visitados</span>
+                <span class="info-box-number"><%= @members_visited.size %></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -68,11 +64,11 @@
           <!-- /.col -->
           <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-              <span class="info-box-icon bg-yellow"><i class="fa fa-money"></i></span>
+              <span class="info-box-icon bg-red"><i class="fa fa-calendar-times-o"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Valor 01</span>
-                <span class="info-box-number"><%= number_to_currency 0 %></span>
+                <span class="info-box-text">Membros Não Visitados</span>
+                <span class="info-box-number"><%= @members_unvisited.size %></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -86,7 +82,7 @@
             <div class="box box-solid">
               <div class="box-header with-border">
                 <h3 class="box-title">
-                  Lista
+                  Líderes
                 </h3>
               </div>
               <div class="box-body no-padding">
@@ -95,59 +91,149 @@
                     <tr>
                       <th>#</th>
                       <th>Nome</th>
-                      <th class='text-right'>coluna1</th>
-                      <th class='text-center'>Coluna2</th>
-                      <th class='text-center'>Coluna3</th>
+                      <th class='text-right'>cpf</th>
+                      <th class='text-center'>email</th>
+                      <th class='text-center'>Bairro</th>
                     </tr>
                   </thead>
-                  <tbody>
-                  
-                      <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td class='text-right'>10</td>
-                        <td class='text-center'>10</td>
-                        <td class='text-center'>10</td>
-                      </tr>
-                   
+                  <tbody>                  
+                      <% @leaders.each do |lds| %>
+                        <tr>
+                          <td><%= link_to lds.id, lds %></td>
+                          <td><%= link_to lds.name, lds %></td>
+                          <td class='text-right'><%= lds.user.cpf %></td>
+                          <td class='text-center'><%= lds.user.email %></td>
+                          <td class='text-center'><%= lds.address.district %></td>
+                        </tr>
+                      <% end %>    
                     
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
+        
           <div class="col-md-6">
-           lista
+            <div class="box box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title">
+                  Membros
+                </h3>
+              </div>
+              <div class="box-body no-padding">
+                <table class="table table-stripped datatables_paginate_and_search">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Nome</th>
+                      <th class='text-right'>cpf</th>
+                      <th class='text-center'>Líder</th>
+                      <th class='text-center'>Status</th>
+                      <th class='text-center'>Bairro</th>
+                    </tr>
+                  </thead>
+                  <tbody>                  
+                      <% @members.each do |mbs| %>
+                        <tr>
+                          <td><%= link_to mbs.id, mbs %></td>
+                          <td><%= link_to mbs.name, mbs %></td>
+                          <td class='text-right'><%= mbs.cpf %></td>
+                          <td class='text-center'><%= mbs.leader.name %></td>
+                          <td class='text-center'><%= mbs.translate_status %></td>
+                          <td class='text-center'><%=mbs.address.district %></td>
+                        </tr>
+                      <% end %>    
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <!-- /.tab-pane -->
-      <div class="tab-pane" id="tab_2">
-        <div class="box box-solid">
-          <div class="box-header with-border">
-            <h3 class="box-title">
-              <b>
-                Filtrar
-              </b>
-            </h3>
-            <div class="box-body">
-             
+        </div>                
+
+
+        <div class="row">
+         
+          <div class="col-md-6">
+            <div class="box box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title">
+                  Membros Visitados
+                </h3>
+              </div>
+              <div class="box-body no-padding">
+                <table class="table table-stripped datatables_paginate_and_search">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Nome</th>
+                      <th class='text-right'>cpf</th>
+                      <th class='text-center'>Líder</th>
+                      <th class='text-center'>Status</th>
+                      <th class='text-center'>Bairro</th>
+                    </tr>
+                  </thead>
+                  <tbody>                  
+                      <% @members_visited.each do |mbs| %>
+                        <tr>
+                          <td><%= link_to mbs.id, mbs %></td>
+                          <td><%= link_to mbs.name, mbs %></td>
+                          <td class='text-right'><%= mbs.cpf %></td>
+                          <td class='text-center'><%= mbs.leader.name %></td>
+                          <td class='text-center'><%= mbs.translate_status %></td>
+                          <td class='text-center'><%=mbs.address.district %></td>
+                        </tr>
+                      <% end %>    
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        
+
+          <div class="col-md-6">
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">
+                Membros Não Visitados
+              </h3>
+            </div>
+            <div class="box-body no-padding">
+              <table class="table table-stripped datatables_paginate_and_search">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th class='text-right'>cpf</th>
+                    <th class='text-center'>Líder</th>
+                    <th class='text-center'>Status</th>
+                    <th class='text-center'>Bairro</th>
+                  </tr>
+                </thead>
+                <tbody>                  
+                    <% @members_unvisited.each do |mbs| %>
+                      <tr>
+                        <td><%= link_to mbs.id, mbs %></td>
+                        <td><%= link_to mbs.name, mbs %></td>
+                        <td class='text-right'><%= mbs.cpf %></td>
+                        <td class='text-center'><%= mbs.leader.name %></td>
+                        <td class='text-center'><%= mbs.translate_status %></td>
+                        <td class='text-center'><%=mbs.address.district %></td>
+                      </tr>
+                    <% end %>    
+                  
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <span class="label bg-red">Status 01</span>
-            <span class="label bg-orange">Status 02</span>
-            <span class="label bg-green">Status 03</span>
-          </div>
-        </div>
-        <br>
-        <div class="row row-flex">
-         
+      </div>   
+
+
         </div>
       </div>
-      <!-- /.tab-pane -->
+      
     </div>
     <!-- /.tab-content -->
   </div>

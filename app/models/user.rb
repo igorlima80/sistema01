@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
   has_one_attached :image, dependent: :destroy
-  validates :cpf, cpf: true, if: Proc.new {|u| ["Franchisee", "Property", ""].include? userable_type }
+  validates :cpf, cpf: true, if: Proc.new {|u| ["Leader", ""].include? userable_type }
 
   def address
     self.userable.address
