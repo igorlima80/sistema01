@@ -1,12 +1,12 @@
 class Leader < ApplicationRecord
-    belongs_to :user, dependent: :destroy, optional: true
+    
     has_one :address, dependent: :destroy, as: :addressable
     has_many :members
     has_one_attached :image, dependent: :destroy
 
     after_create :assign_role 
-
-    validates_associated :user
+    has_one :user, as: :userable
+       
     accepts_nested_attributes_for :user, allow_destroy: true
     accepts_nested_attributes_for :address, allow_destroy: true
 
