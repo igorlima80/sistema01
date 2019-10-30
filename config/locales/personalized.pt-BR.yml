@@ -65,6 +65,7 @@ pt-BR:
         <<: *MODELS
         mother_name: Nome da Mãe
         father_name: Nome do Pai
+        cpf: CPF
       role: 
         <<: *BASIC
         <<: *MODELS

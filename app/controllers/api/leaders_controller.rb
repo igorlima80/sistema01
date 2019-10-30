@@ -3,7 +3,7 @@ class Api::LeadersController < Api::ApplicationController
 
   def login
     @leader = {}
-    @leader = Leader.where(users: { cpf: params[:cpf] }).first
+    @leader = Leader.where(cpf: params[:cpf]).first
 
     if @leader
       render json: @leader.leader_json

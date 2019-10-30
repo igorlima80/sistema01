@@ -101,7 +101,7 @@
                         <tr>
                           <td><%= link_to lds.id, lds %></td>
                           <td><%= link_to lds.name, lds %></td>
-                          <td class='text-right'><%= lds.user.cpf %></td>
+                          <td class='text-right'><%= lds.cpf %></td>
                           <td class='text-center'><%= lds.user.email %></td>
                           <td class='text-center'><%= lds.address.district %></td>
                         </tr>
@@ -229,6 +229,48 @@
           </div>
         </div>
       </div>   
+
+
+      <div class="row">
+      <div class="col-md-6">
+      <div class="box box-solid">
+        <div class="box-header with-border">
+          <h3 class="box-title">
+            Visitas Realizadas
+          </h3>
+        </div>
+        <div class="box-body no-padding">
+          <table class="table table-stripped datatables_paginate_and_search">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Data</th>
+                <th class='text-center'>Líder</th>
+                <th class='text-center'>Membro</th>
+                <th class='text-center'>Eleitores</th>
+                <th class='text-center'>Bairro</th>
+              </tr>
+            </thead>
+            <tbody>                  
+                <% @visits.each do |vst| %>
+                  <tr>
+                    <td><%= link_to vst.id, vst %></td>
+                    <td><%= link_to vst.date_visit, vst %></td>
+                    <td class='text-center'><%= vst.member.leader.name %></td>
+                    <td class='text-center'><%= vst.member.name %></td>
+                    <td class='text-center'><%= vst.number_of_voters %></td>
+                    <td class='text-center'><%= vst.member.address.district %></td>
+                    
+                  </tr>
+                <% end %>    
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>              
+      </div>
+
 
 
         </div>

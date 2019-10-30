@@ -34,10 +34,12 @@ Rails.application.routes.draw do
     resources :members, only: [:create, :show] do      
       post :find_unvisited, on: :collection      
       post :find, on: :collection
+      post :create, on: :member
     end
 
     resources :visits, only: [:create, :show] do
       post :find, on: :collection
+      post :create, on: :member
     end
     
   end
