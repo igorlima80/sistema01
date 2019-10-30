@@ -54,9 +54,9 @@ class LeadersController  < Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def leader_params
-      params.require(:leader).permit(:mother_name, :father_name, :rg,
+      params.require(:leader).permit(:mother_name, :father_name, :rg, :cpf,
         user_attributes: [
-            :id, :_destroy, :name, :email, :password, :image, :cpf
+            :id, :_destroy, :name, :email, :password, :image
           ],
           address_attributes: [
             :id, :_destroy, :description, :zipcode, :street, :number, :complement,
