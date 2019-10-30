@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       post :find_unvisited, on: :collection      
       post :find, on: :collection
       post :create, on: :member
+      post :delete, on: :member
     end
 
     resources :visits, only: [:create, :show] do

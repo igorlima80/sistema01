@@ -7,7 +7,7 @@ class Member < ApplicationRecord
   }
   translate_enum :status
   
-  belongs_to :leader, dependent: :destroy, optional: true
+  belongs_to :leader, optional: true
   has_one :address, dependent: :destroy, as: :addressable
   has_many :visits, dependent: :destroy
 
