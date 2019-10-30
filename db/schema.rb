@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2019_10_27_130901) do
     t.string "mother_name"
     t.string "father_name"
     t.string "rg"
+    t.string "cpf"
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", null: false
@@ -169,7 +170,6 @@ ActiveRecord::Schema.define(version: 2019_10_27_130901) do
     t.string "uid", default: "", null: false
     t.text "tokens"
     t.string "generated_password"
-    t.string "cpf"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true

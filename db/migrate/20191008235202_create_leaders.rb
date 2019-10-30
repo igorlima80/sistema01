@@ -4,6 +4,7 @@ class CreateLeaders < ActiveRecord::Migration[5.2]
       t.string :mother_name
       t.string :father_name
       t.string :rg
+      t.string :cpf
       t.float :latitude
       t.float :longitude
 

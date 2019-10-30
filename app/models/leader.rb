@@ -10,6 +10,8 @@ class Leader < ApplicationRecord
     accepts_nested_attributes_for :user, allow_destroy: true
     accepts_nested_attributes_for :address, allow_destroy: true
 
+    validates :cpf, cpf: true, uniqueness: true
+
     geocoded_by :geo_address
     after_validation :geocode
 
