@@ -105,6 +105,19 @@ def find_unvisited
     end
   end
 
+     # POST /api/members/1
+     def update
+      @member = Member.find params[:id]
+      if @member.update(member_params)
+        render json: @member.member_json
+      else
+        render json:{
+          message: @member.errors.full_messages,
+          status: :unprocessable_entity
+        }
+      end
+    end
+
 
   private
   def member_params
