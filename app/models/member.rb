@@ -15,8 +15,11 @@ class Member < ApplicationRecord
   accepts_nested_attributes_for :address, allow_destroy: true
   accepts_nested_attributes_for :visits, allow_destroy: true
 
+  
+
   geocoded_by :geo_address
-  after_validation :geocode
+
+ after_validation :geocode
 
 
 

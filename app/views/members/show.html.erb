@@ -45,6 +45,14 @@
               <th width='15%'><%= Member.human_attribute_name(:status) %></th>
               <td><%= @member.translate_status %></td>
             </tr>
+            <tr>
+              <th width='15%'><%= Member.human_attribute_name(:latitude) %></th>
+              <td><%= @member.latitude %></td>
+            </tr>
+            <tr>
+              <th width='15%'><%= Member.human_attribute_name(:longitude) %></th>
+              <td><%= @member.longitude %></td>
+            </tr>
             
           </tbody>
         </table>
