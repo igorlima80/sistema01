@@ -31,12 +31,12 @@ Rails.application.routes.draw do
      
     end
 
-    resources :members, only: [:create, :show, :update, :delete] do      
+    resources :members, only: [:create, :show, :update, :destroy] do      
       post :find_unvisited, on: :collection      
       post :find, on: :collection
       post :create, on: :member
       post :update, on: :member
-      post :delete, on: :member
+      
     end
 
     resources :visits, only: [:create, :show] do

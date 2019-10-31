@@ -8,7 +8,9 @@ class Api::LeadersController < Api::ApplicationController
     if @leader
       render json: @leader.leader_json
     else
-      render json: nil
+      render json:{
+        status: :not_found
+      }
     end
 
   end  

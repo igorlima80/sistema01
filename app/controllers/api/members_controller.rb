@@ -118,6 +118,21 @@ def find_unvisited
       end
     end
 
+    # DELETE /member/1
+  def destroy
+    @member = Member.find params[:id]
+    if @member.destroy
+      render json:  {        
+        status: :ok
+      }
+    else
+      render json:  {
+        message: @member.errors.full_messages,
+        status: :unprocessable_entity
+      }
+    end        
+  end
+
 
   private
   def member_params

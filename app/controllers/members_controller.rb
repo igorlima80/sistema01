@@ -40,7 +40,7 @@ class MembersController  < Admin::ApplicationController
     end
   end
 
-  # DELETE /leaders/1
+  # DELETE /member/1
   def destroy
     @member.destroy
     redirect_to members_url, notice: 'Member was successfully destroyed.'
