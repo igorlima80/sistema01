@@ -19,15 +19,7 @@ def find_unvisited
     render json: {
       success: @members.any?,
       message: "#{@members.to_a&.size} membros encontrados",
-      collection: @members.as_json(
-        methods: [:translate_status],
-        except: [:created_at, :updated_at], 
-        include: [
-          address: {
-            except: [:id, :city_id, :addressable_type, :addressable_id, :created_at, :updated_at]
-          }        
-        ]
-      )
+      collection: @members.member_json
     }
   end
 
