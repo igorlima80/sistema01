@@ -35,23 +35,10 @@ def find_unvisited
     @member = {}
     @member = Member.find_by(id: params[:id])
     if @member
-      render json:  @member.as_json(
-        methods: [:translate_status],
-        except: [:created_at, :updated_at], 
-        include: [
-          address: {
-            except: [:id, :city_id, :addressable_type, :addressable_id, :created_at, :updated_at]
-          },
-          visits:{
-            only: [:date_visit, :observation, :number_of_voters]
-          }        
-        ]
-      )
+      render json:  @member.member_json
     else
       render json:  {
-        message: @member.errors.full_messages,
-        member: @member.as_json,
-        status: :unprocessable_entity
+        status: :not_found
       }
     end
   end
@@ -71,15 +58,7 @@ def find_unvisited
     render json: {
       success: @members.any?,
       message: "#{@members.to_a&.size} membros encontrados",
-      collection: @members.as_json(
-        methods: [:translate_status],
-        except: [:created_at, :updated_at], 
-        include: [
-          address: {
-            except: [:id, :city_id, :addressable_type, :addressable_id, :created_at, :updated_at]
-          }    
-        ]
-      )
+      collection: @members.member_json
     }
   end
 
@@ -87,15 +66,7 @@ def find_unvisited
     @member = Member.new(member_params)  
     @member.status = "unvisited"
     if @member.save
-      render json: @member.as_json(
-        methods: [:translate_status],
-        except: [:created_at, :updated_at], 
-        include: [
-          address: {
-            except: [:id, :city_id, :addressable_type, :addressable_id, :created_at, :updated_at]
-          }        
-        ]
-      ), status: :created
+      render json: @member.member_json, status: :created
     else
       render json:  {
         message: @member.errors.full_messages,

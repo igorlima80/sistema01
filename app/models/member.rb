@@ -37,22 +37,15 @@ end
 
 def member_json
   self.to_json(
-    except: [:created_at, :updated_at],
-    include: [     
-        address: {            
-          include: [
-            city: {
-              except: [:id, :state_id, :created_at, :updated_at],
-              include: [
-                state: {
-                  except: [:id, :ibge, :created_at, :updated_at]
-                }
-              ]
-            }
-          ]
+    methods: [:translate_status],
+    except: [:created_at, :updated_at, :latitude, :longitude ],
+    include: [ 
+        address: {
+          except:[:id, :addressable_type, :addressable_id, :created_at, :updated_at] 
         }
   ])
 end
+
 
 
 
