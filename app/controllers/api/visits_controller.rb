@@ -1,9 +1,6 @@
 class Api::VisitsController < Api::ApplicationController
     #load_and_authorize_resource
 
-
-
-    
   def create   
     @visit = Visit.new(visit_params)  
     if @visit.save
@@ -26,7 +23,9 @@ class Api::VisitsController < Api::ApplicationController
     render json: {
       success: @visits.any?,
       message: "#{@visits.to_a&.size} visitas encontradas",
-      collection: @visits.as_json
+      collection: @visits.as_json(     
+       except: [:created_at, :updated_at]
+      )
     }
   end
 

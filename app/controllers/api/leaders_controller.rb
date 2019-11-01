@@ -43,7 +43,19 @@ class Api::LeadersController < Api::ApplicationController
   def members
     @leader = Leader.find_by(id: params[:id])
     if @leader
-      render json: @leader.members.order(created_at: :desc).member_json
+      render json: @leader.members.order(created_at: :desc).as_json(
+        methods: [:translate_status],
+        except: [:created_at, :updated_at, :leader_id],
+        include: [ 
+            leader:{
+              methods: [:name],
+              except:[ :created_at, :updated_at, :mother_name, :father_name, :user_id, :rg, :cpf, :latitude, :longitude]
+               
+            },
+            address: {
+              except:[:id, :addressable_type, :addressable_id, :created_at, :updated_at] 
+            }
+      ])
     end
   end
 
