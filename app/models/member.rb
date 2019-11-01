@@ -38,7 +38,7 @@ end
 def member_json
   self.to_json(
     methods: [:translate_status],
-    except: [:created_at, :updated_at, :latitude, :longitude ],
+    except: [:created_at, :updated_at ],
     include: [ 
         address: {
           except:[:id, :addressable_type, :addressable_id, :created_at, :updated_at] 

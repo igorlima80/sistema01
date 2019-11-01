@@ -21,7 +21,7 @@ class Api::LeadersController < Api::ApplicationController
     if @leader
       render json: @leader.leader_json
     else
-      render json: nil
+      render json:  {status: :not_found}
     end
   end
 
@@ -43,15 +43,7 @@ class Api::LeadersController < Api::ApplicationController
   def members
     @leader = Leader.find_by(id: params[:id])
     if @leader
-      render json: @leader.members.order(created_at: :desc).as_json(
-        methods: [:translate_status],
-        except: [:created_at, :updated_at],
-        include: [          
-              address: {
-                except: [:id, :city_id, :addressable_type, :addressable_id, :created_at, :updated_at]
-              } 
-            ]         
-      )
+      render json: @leader.members.order(created_at: :desc).member_json
     end
   end
 
