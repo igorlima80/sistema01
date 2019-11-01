@@ -41,6 +41,9 @@ class Leader < ApplicationRecord
     self.to_json(
       except: [:created_at, :updated_at, :user_id ],
       include: [ 
+          user:{
+            only:[:name]
+          },
           address: {
             except:[:id, :addressable_type, :addressable_id, :created_at, :updated_at] 
           }
