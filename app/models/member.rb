@@ -35,18 +35,22 @@ def translate_status
   self.human_enum_name(:status, self.status)
 end
 
+
 def member_json
   self.to_json(
     methods: [:translate_status],
-    except: [:created_at, :updated_at ],
+    except: [:created_at, :updated_at, :leader_id],
     include: [ 
+        leader:{
+          methods: [:name],
+          except:[ :created_at, :updated_at, :mother_name, :father_name, :user_id, :rg, :cpf, :latitude, :longitude]
+           
+        },
         address: {
           except:[:id, :addressable_type, :addressable_id, :created_at, :updated_at] 
         }
   ])
 end
-
-
 
 
 def member_params

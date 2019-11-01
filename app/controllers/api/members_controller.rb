@@ -62,7 +62,7 @@ def find_unvisited
     else
       render json:  {
         message: @member.errors.full_messages,
-        member: @member.as_json,
+        member: @member.member_json,
         status: :unprocessable_entity
       }
     end

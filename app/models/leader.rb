@@ -46,5 +46,6 @@ class Leader < ApplicationRecord
           }
     ])
   end
+  
 end
 

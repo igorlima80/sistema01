@@ -39,8 +39,8 @@ Rails.application.routes.draw do
       
     end
 
-    resources :visits, only: [:create, :show] do
-      post :find, on: :collection
+    resources :visits, only: [:create, :show] do      
+      post :find_by_member, on: :collection 
       post :create, on: :member
     end
     
