@@ -2,6 +2,8 @@ class Api::VisitsController < Api::ApplicationController
     #load_and_authorize_resource
 
 
+
+    
   def create   
     @visit = Visit.new(visit_params)  
     if @visit.save
