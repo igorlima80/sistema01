@@ -64,7 +64,7 @@ def find_unvisited
       message: "#{@members.to_a&.size} membros encontrados",
       collection: @members.as_json(
         methods: [:translate_status],
-        except: [:created_at, :updated_at, :leader_id],
+        except: [:created_at, :updated_at],
         include: [ 
             leader:{
               methods: [:name],

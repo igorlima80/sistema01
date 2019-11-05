@@ -13,6 +13,7 @@ pt-BR:
       state: Estado
       user: Usuário
       setting: Configurações    
+      visit: Visita
     attributes:
       name_and_description: &BASIC
         name: Nome
