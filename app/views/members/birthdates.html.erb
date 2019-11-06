@@ -1,0 +1,7 @@
+
+<%= render 'shared/index',
+  list: @birthdays_of_month,
+  show_columns: [
+    'id', 'name','birthdate', 'leader_name', 'translate_status', 'address.district', 'address.city.name_with_state'
+  ]
+%>

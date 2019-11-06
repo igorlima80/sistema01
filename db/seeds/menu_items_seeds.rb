@@ -1,6 +1,7 @@
 MenuItem.delete_all
 MenuItem.create name: 'Líderes', icon: 'black-tie', link: 'leaders_path', position: 1, target: '_self', permission: 'manage', permission_check: 'Leader', menu_item_id: nil, published: true, active_test: "controller_name == 'leaders'"
 MenuItem.create name: 'Membros', icon: 'user-plus', link: 'members_path', position: 2, target: '_self', permission: 'manage', permission_check: 'Member', menu_item_id: nil, published: true, active_test: "controller_name == 'members'"
+MenuItem.create name: 'Membros', icon: 'user-plus', link: 'members_path', position: 3, target: '_self', permission: 'manage', permission_check: 'Member', menu_item_id: nil, published: true, active_test: "controller_name == 'members'"
 #MenuItem.create name: 'Hóspedes', icon: 'briefcase', link: 'guests_path', position: 3, target: '_self', permission: 'manage', permission_check: 'Guest', menu_item_id: nil, published: true, active_test: "controller_name == 'guests'"
 #MenuItem.create name: 'Acomodações', icon: 'hotel', link: 'accommodations_path', position: 5, target: '_self', permission: 'manage', permission_check: 'Accommodation', menu_item_id: nil, published: true, active_test: "controller_name == 'accommodations'"
 #MenuItem.create name: 'Comodidades', icon: 'cart-plus', link: 'conveniences_path', position: 6, target: '_self', permission: 'manage', permission_check: 'Convenience', menu_item_id: nil, published: true, active_test: "controller_name == 'conveniences'"

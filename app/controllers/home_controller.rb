@@ -15,5 +15,9 @@ class HomeController < Admin::ApplicationController
     @members_visited = Member.where(status: "visited")
     @members_unvisited = Member.where(status: "unvisited")
     @visits = Visit.order(created_at: :desc)
+    
   end
+
+  
+  
 end

@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
-  resources :visits
-  resources :members
+  resources :visits 
+  resources :members do
+    get :birthdates, on: :collection
+  end
   resources :leaders
   resources :events
   resources :payment_tests
   resources :menu_items
-  
-  
+
+
  
   resources :cities
   resources :states

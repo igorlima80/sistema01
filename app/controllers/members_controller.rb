@@ -4,11 +4,19 @@ class MembersController  < Admin::ApplicationController
   # GET /member
   def index
    @members = Member.all
+   
   end
+
 
   # GET /members/1
   def show
   end
+
+  def birthdates
+    @birthdays_of_month = Member.where('extract(month from birthdate) = ?', DateTime.now.month).order('birthdate DESC')
+  end
+    
+
 
   # GET /members/new
   def new
