@@ -17,7 +17,7 @@ pt-BR:
     attributes:
       name_and_description: &BASIC
         name: Nome
-        description: Descrição
+        description: Descrição        
         created_at: Criação
         updated_at: Atualização
       address:
