@@ -29,7 +29,7 @@ def find_unvisited
                
             },
             address: {
-              except:[:id, :addressable_type, :addressable_id, :created_at, :updated_at] 
+              except:[:addressable_type, :addressable_id, :created_at, :updated_at] 
             }
       ])
     }
@@ -72,6 +72,7 @@ def find_unvisited
                
             },
             address: {
+              methods: [:name_with_state],
               except:[:id, :addressable_type, :addressable_id, :created_at, :updated_at] 
             }
       ])
