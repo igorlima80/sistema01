@@ -82,42 +82,43 @@
 
         <div class="row">
          
-          <div class="col-md-6">
-            <div class="box box-solid">
-              <div class="box-header with-border">
-                <h3 class="box-title">
-                  Membros Visitados
-                </h3>
-              </div>
-              <div class="box-body no-padding">
-                <table class="table table-stripped datatables_paginate_and_search">
-                  <thead>
-                    <tr>
-                      <th>#</th>
-                      <th>Nome</th>
-                      <th class='text-right'>cpf</th>
-                      <th class='text-center'>Líder</th>
-                      <th class='text-center'>Status</th>
-                      <th class='text-center'>Bairro</th>
-                    </tr>
-                  </thead>
-                  <tbody>                  
-                      <% @members_visited.each do |mbs| %>
-                        <tr>
-                          <td><%= link_to mbs.id, mbs %></td>
-                          <td><%= link_to mbs.name, mbs %></td>
-                          <td class='text-right'><%= mbs.cpf %></td>
-                          <td class='text-center'><%= mbs.leader.name %></td>
-                          <td class='text-center'><%= mbs.translate_status %></td>
-                          <td class='text-center'><%=mbs.address.district %></td>
-                        </tr>
-                      <% end %>    
-                    
-                  </tbody>
-                </table>
-              </div>
-            </div>
+        <div class="col-md-6">
+        <div class="box box-solid">
+          <div class="box-header with-border">
+            <h3 class="box-title">
+              Visitas Realizadas
+            </h3>
           </div>
+          <div class="box-body no-padding">
+            <table class="table table-stripped datatables_paginate_and_search">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Data</th>
+                  <th class='text-center'>Líder</th>
+                  <th class='text-center'>Membro</th>
+                  <th class='text-center'>Eleitores</th>
+                  <th class='text-center'>Bairro</th>
+                </tr>
+              </thead>
+              <tbody>                  
+                  <% @visits.each do |vst| %>
+                    <tr>
+                      <td><%= link_to vst.id, vst %></td>
+                      <td><%= link_to vst.date_visit, vst %></td>
+                      <td class='text-center'><%= vst.member.leader.name %></td>
+                      <td class='text-center'><%= vst.member.name %></td>
+                      <td class='text-center'><%= vst.number_of_voters %></td>
+                      <td class='text-center'><%= vst.member.address.district %></td>
+                      
+                    </tr>
+                  <% end %>    
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>              
         
 
           <div class="col-md-6">
@@ -129,7 +130,11 @@
             </div>
             <div class="box-body no-padding">
               <table class="table table-stripped datatables_paginate_and_search">
-                <thead>
+                <thead><div class="row"><div class="row">
+      
+                </div>
+      
+                </div>
                   <tr>
                     <th>#</th>
                     <th>Nome</th>
@@ -159,45 +164,7 @@
       </div>  
 
 
-      <div class="row">
-      <div class="col-md-6">
-      <div class="box box-solid">
-        <div class="box-header with-border">
-          <h3 class="box-title">
-            Visitas Realizadas
-          </h3>
-        </div>
-        <div class="box-body no-padding">
-          <table class="table table-stripped datatables_paginate_and_search">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Data</th>
-                <th class='text-center'>Líder</th>
-                <th class='text-center'>Membro</th>
-                <th class='text-center'>Eleitores</th>
-                <th class='text-center'>Bairro</th>
-              </tr>
-            </thead>
-            <tbody>                  
-                <% @visits.each do |vst| %>
-                  <tr>
-                    <td><%= link_to vst.id, vst %></td>
-                    <td><%= link_to vst.date_visit, vst %></td>
-                    <td class='text-center'><%= vst.member.leader.name %></td>
-                    <td class='text-center'><%= vst.member.name %></td>
-                    <td class='text-center'><%= vst.number_of_voters %></td>
-                    <td class='text-center'><%= vst.member.address.district %></td>
-                    
-                  </tr>
-                <% end %>    
-              
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>              
-      </div>
+      
 
 
 
@@ -206,5 +173,4 @@
 
   </div>
 </div>
-
 
