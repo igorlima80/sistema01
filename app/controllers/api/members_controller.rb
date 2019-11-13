@@ -29,7 +29,13 @@ def find_unvisited
                
             },
             address: {
-              except:[:addressable_type, :addressable_id, :created_at, :updated_at] 
+              include:[
+                city:{
+                  methods: [:name_with_state],
+                  only: [:id]
+                }
+              ],
+              except:[:city_id, :addressable_type, :addressable_id, :created_at, :updated_at] 
             }
       ])
     }
@@ -72,8 +78,13 @@ def find_unvisited
                
             },
             address: {
-              methods: [:name_with_state],
-              except:[:id, :addressable_type, :addressable_id, :created_at, :updated_at] 
+              include:[
+                city:{
+                  methods: [:name_with_state],
+                  only: [:id]
+                }
+              ],
+              except:[:city_id, :addressable_type, :addressable_id, :created_at, :updated_at] 
             }
       ])
     }

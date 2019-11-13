@@ -53,8 +53,13 @@ class Api::LeadersController < Api::ApplicationController
                
             },
             address: {
-              methods: [:name_with_state],
-              except:[:addressable_type, :addressable_id, :created_at, :updated_at] 
+              include:[
+                city:{
+                  methods: [:name_with_state],
+                  only: [:id]
+                }
+              ],
+              except:[:city_id, :addressable_type, :addressable_id, :created_at, :updated_at] 
             }
       ])
     end
