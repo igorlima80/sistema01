@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     
     post 'special_periods/find_geolocation'   
     get 'settings/show'
-    
+    post 'utils/zipcode'
         
     resources :leaders, only: [:update, :show] do
       post :login, on: :collection
