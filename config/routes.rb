@@ -35,6 +35,7 @@ Rails.application.routes.draw do
       post :find, on: :collection
       # post :find_states, on: :collection
       #post :find_by_state, on: :collection
+      post :find_by_ibge, on: :collection
     end
 
     resources :members, only: [:create, :show, :update, :destroy] do      

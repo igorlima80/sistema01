@@ -31,4 +31,24 @@ class Api::CitiesController < Api::ApplicationController
       collection: @cities
     })
   end
+
+  def find_by_ibge
+    @city = City.where(ibge: params[:ibge]).first
+
+    if @city
+      render json: @city.as_json(
+        include:[
+                state:{
+                  only: [:id, :name]
+                }
+              ]
+      )
+    else
+      render json:{
+        status: :not_found
+      }
+    end
+
+  end
+
 end
