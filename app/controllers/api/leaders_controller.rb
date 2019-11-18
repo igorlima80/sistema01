@@ -67,12 +67,15 @@ class Api::LeadersController < Api::ApplicationController
 
   private
     def leader_params
+      params[:leader][:address_attributes] = params[:address]
       params.fetch(:leader).permit(:mother_name, :father_name, :rg,
-        user_attributes: [:id, :_destroy, :email, :name, :cpf],
-        address_attributes: [
-          :id, :_destroy, :description, :zipcode, :street, :number, :complement, :district, :city_id
-        ]
-      )
+              
+          address_attributes: [:id, :_destroy, :description, :zipcode, :street, :number, :complement, :district, :city_id] , 
+              
+      ) 
+
+     
+    
     end
 end
 
