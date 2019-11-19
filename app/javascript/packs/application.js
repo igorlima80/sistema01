@@ -19,18 +19,12 @@ require('select2');
 
 require('jquery-maskmoney/dist/jquery.maskMoney');
 
-require("jquery")
-require("inputmask")
-require("inputmask/dist/inputmask/inputmask");
-require("inputmask/dist/inputmask/inputmask.numeric.extensions");
-require("inputmask/dist/inputmask/inputmask.date.extensions");
-require("inputmask/dist/inputmask/jquery.inputmask");
+
 
 
 import '../src/fileinput.js';
 
-import 'jquery.inputmask'
-import 'inputmask';
+
 
 
 import { Calendar } from '@fullcalendar/core';
@@ -124,7 +118,7 @@ function money() {
 
 $(document).ready(function () {
   
-  $('#cpf').inputmask("999.999.999-99");
+
   
   money();
 
