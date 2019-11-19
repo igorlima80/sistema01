@@ -73,7 +73,7 @@ def find_unvisited
         except: [:created_at, :updated_at],
         include: [ 
             leader:{
-              methods: [:name],
+              methods: [:name, :birthdate_br],
               except:[ :created_at, :updated_at, :mother_name, :father_name, :user_id, :rg, :cpf, :latitude, :longitude]
                
             },
@@ -136,6 +136,7 @@ def find_unvisited
   private
   def member_params
     params[:member][:address_attributes] = params[:address]
+      
     params.fetch(:member).permit(:name, :cpf, :birthdate, :leader_id,     
       address: [
         :id, :_destroy, :description, :zipcode, :street, :number, :complement, :district, :city_id

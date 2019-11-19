@@ -35,10 +35,14 @@ def translate_status
   self.human_enum_name(:status, self.status)
 end
 
+def birthdate_br
+ self.birthdate.strftime("%d/%m/%Y")
+end  
+
 
 def member_json
   self.to_json(
-    methods: [:translate_status],
+    methods: [:translate_status, :birthdate_br],
     except: [:created_at, :updated_at, :leader_id],
     include: [ 
         leader:{
