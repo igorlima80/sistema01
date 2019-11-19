@@ -63,15 +63,6 @@ def member_json
 end
 
 
-def member_params
-  params.require(:member).permit(:name, :leader_id, :cpf, :status,
-   
-      address_attributes: [
-        :id, :_destroy, :description, :zipcode, :street, :number, :complement,
-        :district, :city_id
-      ]      
-  )
-end
 
 
 

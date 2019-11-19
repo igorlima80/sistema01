@@ -134,17 +134,17 @@ def find_unvisited
 
 
   private
-  def member_params
+  def member_params 
     params[:member][:address_attributes] = params[:address]
-      
     params.fetch(:member).permit(:name, :cpf, :birthdate, :leader_id,     
-      address: [
+      address_attributes: [
         :id, :_destroy, :description, :zipcode, :street, :number, :complement, :district, :city_id
       ],
       visits_attributes: [
           :id, :_destroy, :date_visit, :observation, :number_of_voters
         ]
     )
+   
   end
 
   
