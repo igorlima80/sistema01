@@ -34,6 +34,7 @@
 //= require jquery.maskMoney.js
 
 
+
 function via_cep(input) {
   form = input.parent().parent().parent();
   $.post("/utils/zipcode", { zipcode: input.val() }, function(data) {
@@ -66,7 +67,8 @@ $(document).ready(function(){
     language: 'pt-BR'
   });
 
-  $('.mask_cpf').inputmask({mask: "999.999.999-99"});
+  
+  $('.cpf').inputmask("99-9999999");
 
   $('.datatables').DataTable({
     paging: false,

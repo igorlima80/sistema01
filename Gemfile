@@ -138,3 +138,4 @@ gem 'validates_cpf_cnpj'
 #Simple, zero-dependant enum translation gem for Rails
 gem 'translate_enum'
 
+

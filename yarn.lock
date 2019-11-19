@@ -1406,7 +1406,7 @@ bootstrap3@^3.3.5:
   resolved "https://registry.yarnpkg.com/bootstrap3/-/bootstrap3-3.3.5.tgz#496a4ef6c087214fa96838196d60de645e82591a"
   integrity sha1-SWpO9sCHIU+paDgZbWDeZF6CWRo=
 
-"bootstrap@>= 3.4.1":
+"bootstrap@>= 3.4.1", bootstrap@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.3.1.tgz#280ca8f610504d99d7b6b4bfc4b68cec601704ac"
   integrity sha512-rXqOmH1VilAt2DyPzluTi2blhk17bO7ef+zLLPlWvG494pDxcM234pJ8wTc/6R40UWizAIIMgxjvxZg5kmsbag==
@@ -4038,6 +4038,11 @@ jquery-knob@^1.2.11:
   resolved "https://registry.yarnpkg.com/jquery-knob/-/jquery-knob-1.2.11.tgz#f37c39dbc1c7a6a6c12cdb2ed4f6bffb683f10d6"
   integrity sha1-83w528HHpqbBLNsu1Pa/+2g/ENY=
 
+jquery-mask-plugin@^1.14.16:
+  version "1.14.16"
+  resolved "https://registry.yarnpkg.com/jquery-mask-plugin/-/jquery-mask-plugin-1.14.16.tgz#9ebb55947d984da5aade45315b2fe6b113e28aae"
+  integrity sha512-reywdHlYEkPbzWjTpcc1fk9XQ3PLvO5dzEAVqy8zI7NTF22tB1HbeU3iboZTLdkBEPaWAqeI2HtEjsGQ4roZKw==
+
 jquery-maskmoney@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/jquery-maskmoney/-/jquery-maskmoney-3.0.2.tgz#f18de4f06b8c66ad97cae8b320571c936ac637b7"
@@ -4062,7 +4067,7 @@ jquery-ujs@^1.2.2:
   dependencies:
     jquery ">=1.8.0"
 
-"jquery@>= 1.9.0", jquery@>=1.10, jquery@>=1.5, jquery@>=1.6, jquery@>=1.7, "jquery@>=1.7.1 <4.0.0", jquery@>=1.8, jquery@>=1.8.0, jquery@^3.2.1, jquery@^3.4.0:
+"jquery@>= 1.9.0", jquery@>=1.10, jquery@>=1.5, jquery@>=1.6, jquery@>=1.7, "jquery@>=1.7.1 <4.0.0", jquery@>=1.8, jquery@>=1.8.0, jquery@^3.2.1, jquery@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
