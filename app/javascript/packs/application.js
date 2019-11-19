@@ -19,6 +19,13 @@ require('select2');
 
 require('jquery-maskmoney/dist/jquery.maskMoney');
 
+require("jquery")
+require("inputmask")
+require("inputmask/dist/inputmask/inputmask");
+require("inputmask/dist/inputmask/inputmask.numeric.extensions");
+require("inputmask/dist/inputmask/inputmask.date.extensions");
+require("inputmask/dist/inputmask/jquery.inputmask");
+
 
 import '../src/fileinput.js';
 
