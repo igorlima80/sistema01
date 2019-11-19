@@ -32,6 +32,8 @@
 //= require select2/dist/js/select2
 //= require select2/dist/js/i18n/pt-BR
 //= require jquery.maskMoney.js
+//= require jquery.mask.min.js
+
 
 
 
@@ -58,6 +60,10 @@ function money() {
 
 
 
+
+
+
+
 $(document).ready(function(){
   initializeMasks();
   $('[data-toggle="tooltip"]').tooltip({ placement: 'top' });
@@ -67,8 +73,8 @@ $(document).ready(function(){
     language: 'pt-BR'
   });
 
-  
-  $('.cpf').inputmask("99-9999999");
+  $('#cpf').inputmask("999.999.999-99");
+ 
 
   $('.datatables').DataTable({
     paging: false,

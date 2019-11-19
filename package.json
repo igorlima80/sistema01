@@ -16,9 +16,9 @@
     "datatables.net-responsive-bs": "^2.2.3",
     "inputmask": "^4.0.9",
     "jquery": "^3.4.1",
-    "jquery-mask-plugin": "^1.14.16",
     "jquery-maskmoney": "^3.0.2",
     "jquery-ujs": "^1.2.2",
+    "jquery.inputmask": "^3.3.4",
     "select2": "^4.0.7-rc.0",
     "select2-bootstrap-theme": "^0.1.0-beta.10"
   },

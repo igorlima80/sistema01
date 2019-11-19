@@ -19,8 +19,12 @@ require('select2');
 
 require('jquery-maskmoney/dist/jquery.maskMoney');
 
+
 import '../src/fileinput.js';
+
+import 'jquery.inputmask'
 import 'inputmask';
+
 
 import { Calendar } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
@@ -109,7 +113,12 @@ function money() {
   });
 }
 
+
+
 $(document).ready(function () {
+  
+  $('#cpf').inputmask("999.999.999-99");
+  
   money();
 
   var hash = window.location.hash;
