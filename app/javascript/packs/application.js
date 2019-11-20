@@ -250,6 +250,8 @@ $(document).ready(function () {
 
   $('#cpf').inputmask("999.999.999-99");
   $('#zipcode').inputmask("99999-999");
+  $('#phone').inputmask("(99) 9 9999-9999");  
+  $('#cell_phone').inputmask("(99) 9 9999-9999");
 
   var $input = $('.fileinput');
   if ($input.length) {

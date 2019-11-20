@@ -54,6 +54,8 @@ pt-BR:
         <<: *MODELS
         name_with_state: Cidade
         birthdate: Data de Nascimento
+        phone: Telefone
+        cell_phone: Celular
         statuses: 
           unvisited: Não Visitado
           visited: Visitado
