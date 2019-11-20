@@ -124,8 +124,7 @@ function money() {
 
 $(document).ready(function () {
  
-  $('#cpf').inputmask("999.999.999-99");
-  $('#cep').inputmask("99999-999");
+  
   
   money();
 
@@ -248,6 +247,9 @@ $(document).ready(function () {
   $('input[id$=zipcode]').blur(function () {
     via_cep($(this));
   });
+
+  $('#cpf').inputmask("999.999.999-99");
+  $('#zipcode').inputmask("99999-999");
 
   var $input = $('.fileinput');
   if ($input.length) {
