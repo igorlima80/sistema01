@@ -36,7 +36,11 @@ def translate_status
 end
 
 def birthdate_br
- self.birthdate.strftime("%d/%m/%Y")
+  unless self.birthdate.nil? || self.birthdate.blank?
+     self.birthdate.strftime("%d/%m/%Y")
+  else
+    nil   
+  end   
 end  
 
 

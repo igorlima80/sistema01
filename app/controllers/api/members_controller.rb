@@ -20,7 +20,7 @@ def find_unvisited
       success: @members.any?,
       message: "#{@members.to_a&.size} membros encontrados",
       collection: @members.as_json(
-        methods: [:translate_status],
+        methods: [:translate_status, :birthdate_br],
         except: [:created_at, :updated_at, :leader_id],
         include: [ 
             leader:{
@@ -136,7 +136,7 @@ def find_unvisited
   private
   def member_params 
     params[:member][:address_attributes] = params[:member][:address]
-    params.fetch(:member).permit(:name, :cpf, :birthdate, :leader_id,     
+    params.fetch(:member).permit(:name, :cpf, :birthdate, :leader_id, :phone, :cell_phone,    
       address_attributes: [
         :id, :_destroy, :description, :zipcode, :street, :number, :complement, :district, :city_id
       ],
