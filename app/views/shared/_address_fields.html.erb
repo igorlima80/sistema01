@@ -7,7 +7,7 @@
   <div class="box-body">
     <div class="row ">
       <%= f.input :description, placeholder: 'Ex: Casa, Trabalho', wrapper_html: { class: 'col-lg-3' } %>
-      <%= f.input :zipcode, wrapper_html: { class: 'col-lg-3' } %>
+      <%= f.input :zipcode, input_html: {id: "cep"}, wrapper_html: { class: 'col-lg-3' } %>
       <%= f.input :street, wrapper_html: { class: 'col-lg-4' } %>
       <%= f.input :number, wrapper_html: { class: 'col-lg-2' } %>
       <%= f.input :complement, wrapper_html: { class: 'col-lg-4' } %>

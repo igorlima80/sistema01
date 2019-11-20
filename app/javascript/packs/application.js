@@ -22,16 +22,22 @@ require('jquery-maskmoney/dist/jquery.maskMoney');
 
 
 
+
 import '../src/fileinput.js';
 
-
-
+import '../src/jquery.inputmask.js';
+import '../src/inputmask.js';
 
 import { Calendar } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
+
+
+
 var calendar;
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
   var calendarEl = document.getElementById('accommodation_calendar');
@@ -117,8 +123,9 @@ function money() {
 
 
 $(document).ready(function () {
-  
-
+ 
+  $('#cpf').inputmask("999.999.999-99");
+  $('#cep').inputmask("99999-999");
   
   money();
 
