@@ -30,7 +30,7 @@ Rails.application.routes.draw do
       get :members, on: :member  
      
     end
-
+ 
     resources :cities, only: [:show] do
       post :find, on: :collection
       # post :find_states, on: :collection

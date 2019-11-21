@@ -55,7 +55,7 @@ def find_unvisited
 
   def find
    
-    @members  = Member.where(leader_id: params[:id])
+    @members  = {}
          
     if params[:latitude] && params[:longitude]      
       if params[:radius]
@@ -64,7 +64,9 @@ def find_unvisited
         @members = Member.near([params[:latitude].to_f, params[:longitude].to_f])
       end          
     end
-    
+
+   @members = @members.where(leader_id: params[:id])
+  
     render json: {
       success: @members.any?,
       message: "#{@members.to_a&.size} membros encontrados",

@@ -15,8 +15,8 @@ class Address < ApplicationRecord
   end
 
   def geo_address
-     [street, number, city&.name, city&.state&.name, 'Brasil'].compact.join(', ')
-    #[city&.name, city&.state&.name, 'Brasil'].compact.join(', ')
+     # [street, number, city&.name, city&.state&.name, 'Brasil'].compact.join(', ')
+     [city&.name, city&.state&.name, 'Brasil'].compact.join(', ')
   end
   
 end
