@@ -111,6 +111,7 @@ gem 'devise_token_auth'
 # Complete Ruby geocoding solution. http://www.rubygeocoder.com
 gem 'geocoder'
 
+
 # A library for generating fake data such as names, addresses, and phone numbers.
 gem 'faker'
 

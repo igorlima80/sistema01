@@ -3,7 +3,7 @@ class Api::MembersController < Api::ApplicationController
 
 def find_unvisited
    
-  @members  = Member.where(leader_id: params[:id])
+  @members  = {}
          
     if params[:latitude] && params[:longitude]      
       if params[:radius]
@@ -12,6 +12,8 @@ def find_unvisited
         @members = Member.near([params[:latitude].to_f, params[:longitude].to_f])
       end          
     end
+
+    @members = @members.where(leader_id: params[:id])
 
     if @members.any?
       @members = @members.where(status: "unvisited")
