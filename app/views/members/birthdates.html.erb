@@ -1,3 +1,23 @@
+<%= form_tag(birthdates_members_path, method: :get, id: "month") do %>
+  
+  <div class="box box-primary">
+    <div class="box-header with-border">
+      <h3 class="box-title">
+        Mês
+      </h3>
+    </div>
+    <div class="box-body">
+      <div class="row">
+        <%= label_tag(:month, "Buscar Por:") %>
+         <%= select_month(@mes.to_i) %>  
+         <%= submit_tag 'buscar' %>           
+      </div>
+    </div>
+  </div>
+
+
+<% end %>
+
 
 <%= render 'shared/index',
   list: @birthdays_of_month,

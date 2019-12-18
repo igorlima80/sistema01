@@ -1,9 +1,11 @@
 class LeadersController  < Admin::ApplicationController
   load_and_authorize_resource
 
+
   # GET /leaders
   def index
-   @leaders = Leader.all
+    @q = Leader.ransack(params[:q])
+    @leaders = @q.result.joins(:user).page(params[:page]).per 10
   end
 
   # GET /leaders/1

@@ -2,5 +2,10 @@
   list: @leaders,
   show_columns: [
     'id', 'cpf', 'user.name', 'user.email', 'address.city.name_with_state'
+  ],
+  sort_fields: ['user.name'],
+  search_fields: [
+    { field: 'user_name_cont', label: 'Pesquisar' }
   ]
 %>
+

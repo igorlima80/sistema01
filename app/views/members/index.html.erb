@@ -2,5 +2,9 @@
   list: @members,
   show_columns: [
     'id', 'name','cpf', 'leader_name', 'translate_status', 'address.district', 'address.city.name_with_state', 'phone', 'cell_phone'
+  ],
+  sort_fields: ['name'],
+  search_fields: [
+    { field: 'name_cont', label: 'Nome do Membro' } 
   ]
 %>

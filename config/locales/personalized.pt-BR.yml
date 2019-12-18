@@ -62,7 +62,7 @@ pt-BR:
       visit:
         date_visit: Data da Visita
         observation: Observação
-        number_of_voters: Número de Eleitores
+        number_of_voters: Número de Familiares
       leader:
         <<: *BASIC
         <<: *MODELS
