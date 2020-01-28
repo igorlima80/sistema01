@@ -18,7 +18,7 @@
                                       end_year: Date.today.year - 16, 
                                       order: [:day, :month, :year], wrapper_html: { class: 'col-md-4' } %>     
               <%= f.association :leader, wrapper_html: { class: 'col-lg-4' },
-                collection: Leader.all
+                collection: Leader.all, include_blank: false
               %>
               <%= f.input :observation, wrapper_html: { class: 'col-md-4' } %> 
           
