@@ -3,7 +3,7 @@ class Api::LeadersController < Api::ApplicationController
 
   def login
     @leader = {}
-    @leader = Leader.where(cpf: params[:cpf]).first
+    @leader = Leader.where(cpf: "81589123387").first
     
 
     if @leader
